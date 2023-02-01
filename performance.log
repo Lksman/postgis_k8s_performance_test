@@ -1,0 +1,4 @@
+root - INFO - Testing performance on local with 1 concurrent connections and isolation level read_uncommitted
+root - DEBUG - Thread Thread-1 (execute_single_query) finished
+root - DEBUG - All threads finished
+root - DEBUG - All queries finished
