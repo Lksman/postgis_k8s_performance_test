@@ -1,19 +1,17 @@
-# write a class to write and append data to csv file
 
 import csv
 
-class DataToCSV:
-    def __init__(self, file_name):
-        self.file_name = file_name
+class CSVWriter:
+    def __init__(self, filename):
+        self.filename = filename
+        self.fieldnames = None
 
-    def write(self, data):
-        with open(self.file_name, 'w') as csv_file:
-            writer = csv.writer(csv_file)
-            for key, value in data.items():
-                writer.writerow([key, value])
+    def write_header(self):
+        with open(self.filename, 'w', newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
+            writer.writeheader()
 
-    def append(self, data):
-        with open(self.file_name, 'a') as csv_file:
-            writer = csv.writer(csv_file)
-            for key, value in data.items():
-                writer.writerow([key, value])
+    def append_entry(self, entry):
+        with open(self.filename, 'a', newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
+            writer.writerow(entry)

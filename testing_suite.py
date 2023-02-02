@@ -3,6 +3,7 @@ import logging
 import re
 from custom_thread import CustomThread
 from db_connector import DatabaseConnector
+from data_to_csv import CSVWriter
 
 ENTRY = {
     'db_type': None,
@@ -15,7 +16,7 @@ ENTRY = {
 
 
 def configure_logging() -> None:
-    logging.basicConfig(filename='performance.log', filemode='w', level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
+    logging.basicConfig(filename='performance.log', filemode='w+', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def set_db_isolation_lvl(db: DatabaseConnector, isolation_lvl: str) -> None:
@@ -56,15 +57,17 @@ if __name__ == '__main__':
 
     list_of_entries = list()
 
-    # db_types = ['local', 'single_node', 'cluster']
-    db_types = ['local']
-
+    #db_types = ['local', 'single_node', 'cluster']
     #isolation_levels = ['read_uncommitted', 'read_committed', 'repeatable_read', 'serializable']
-    isolation_levels = ['read_uncommitted']
+    #concurrent_connections = [1, 10, 100]
 
+    db_types = ['local']    
+    isolation_levels = ['read_uncommitted', 'serializable']
+    concurrent_connections = [1]
 
     for db_type in db_types:
         for isolation_lvl in isolation_levels:
+            logging.info("Testing performance on {} with isolation level {}".format(db_type, isolation_lvl))
             if db_type == 'local':
                 db = DatabaseConnector(**config.db_local_details)
                 set_db_isolation_lvl(db, isolation_lvl)
@@ -80,9 +83,9 @@ if __name__ == '__main__':
             
 
             threads = []
-            for concurrent in [1]:
-                #queries = config.queries.values()
-                queries = [config.queries['ConvexHull']]
+            for concurrent in concurrent_connections:
+                logging.info("Testing performance of {} concurrent connections".format(concurrent))
+                queries = config.queries.values()
                 for query in queries:
                     for _ in range(concurrent):
                         t = CustomThread(target=execute_single_query, args=(isolation_lvl, concurrent, query, db_type))
@@ -90,12 +93,17 @@ if __name__ == '__main__':
                         t.start()
                         t.join()
                         logging.debug("Thread {} finished".format(t.name))
-                    logging.debug("All threads finished")
-                logging.debug("All queries finished")
             
 
             for t in threads:
                 list_of_entries.append(t.value)
 
-    for v in list_of_entries:
-        print(v)
+    # for v in list_of_entries:
+    #     print(v)
+
+    csv_writer = CSVWriter('performance.csv')
+    csv_writer.fieldnames = list(ENTRY.keys())
+    csv_writer.write_header()
+    for entry in list_of_entries:
+        csv_writer.append_entry(entry)
+    

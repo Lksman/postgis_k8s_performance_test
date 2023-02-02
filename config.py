@@ -24,7 +24,7 @@ db_local_details = {
     'port' : secrets.db_local_secrets['port']
 }
 
-# possible additional queries: create table
+# possible additional queries: create table, create index
 queries = {
     'Union' : 'SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks',
 

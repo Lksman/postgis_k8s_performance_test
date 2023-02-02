@@ -1,4 +1,26 @@
-root - INFO - Testing performance on local with 1 concurrent connections and isolation level read_uncommitted
-root - DEBUG - Thread Thread-1 (execute_single_query) finished
-root - DEBUG - All threads finished
-root - DEBUG - All queries finished
+2023-02-02 01:40:14,335 - INFO - Testing performance on local with 1 concurrent connections and isolation level read_uncommitted
+2023-02-02 01:40:16,242 - DEBUG - Thread Thread-1 (execute_single_query) finished
+2023-02-02 01:40:16,242 - DEBUG - All threads finished
+2023-02-02 01:40:16,243 - INFO - Testing performance on local with 1 concurrent connections and isolation level read_uncommitted
+2023-02-02 01:40:16,304 - DEBUG - Thread Thread-2 (execute_single_query) finished
+2023-02-02 01:40:16,305 - DEBUG - All threads finished
+2023-02-02 01:40:16,305 - INFO - Testing performance on local with 1 concurrent connections and isolation level read_uncommitted
+2023-02-02 01:40:22,882 - DEBUG - Thread Thread-3 (execute_single_query) finished
+2023-02-02 01:40:22,882 - DEBUG - All threads finished
+2023-02-02 01:40:22,883 - INFO - Testing performance on local with 1 concurrent connections and isolation level read_uncommitted
+2023-02-02 01:40:22,973 - DEBUG - Thread Thread-4 (execute_single_query) finished
+2023-02-02 01:40:22,973 - DEBUG - All threads finished
+2023-02-02 01:40:22,973 - DEBUG - All queries finished
+2023-02-02 01:40:22,995 - INFO - Testing performance on local with 1 concurrent connections and isolation level serializable
+2023-02-02 01:40:24,920 - DEBUG - Thread Thread-5 (execute_single_query) finished
+2023-02-02 01:40:24,920 - DEBUG - All threads finished
+2023-02-02 01:40:24,920 - INFO - Testing performance on local with 1 concurrent connections and isolation level serializable
+2023-02-02 01:40:24,980 - DEBUG - Thread Thread-6 (execute_single_query) finished
+2023-02-02 01:40:24,980 - DEBUG - All threads finished
+2023-02-02 01:40:24,980 - INFO - Testing performance on local with 1 concurrent connections and isolation level serializable
+2023-02-02 01:40:31,530 - DEBUG - Thread Thread-7 (execute_single_query) finished
+2023-02-02 01:40:31,531 - DEBUG - All threads finished
+2023-02-02 01:40:31,531 - INFO - Testing performance on local with 1 concurrent connections and isolation level serializable
+2023-02-02 01:40:31,613 - DEBUG - Thread Thread-8 (execute_single_query) finished
+2023-02-02 01:40:31,613 - DEBUG - All threads finished
+2023-02-02 01:40:31,613 - DEBUG - All queries finished
