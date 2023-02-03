@@ -129,5 +129,5 @@ RUN set -eux \
 # print PostGIS_Full_Version() for the log. ( experimental & internal )
     && cat /_pgis_full_version.txt
 
-COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/10_postgis.sh
-COPY ./update-postgis.sh /usr/local/bin
+#COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/10_postgis.sh
+#COPY ./update-postgis.sh /usr/local/bin
