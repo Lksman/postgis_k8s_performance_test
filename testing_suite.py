@@ -57,13 +57,13 @@ if __name__ == '__main__':
 
     list_of_entries = list()
 
-    #db_types = ['local', 'single_node', 'cluster']
-    #isolation_levels = ['read_uncommitted', 'read_committed', 'repeatable_read', 'serializable']
-    #concurrent_connections = [1, 10, 100]
+    db_types = ['single_node', 'cluster']
+    isolation_levels = ['read_uncommitted', 'read_committed', 'repeatable_read', 'serializable']
+    concurrent_connections = [1, 10, 100]
 
-    db_types = ['local']    
-    isolation_levels = ['read_uncommitted', 'serializable']
-    concurrent_connections = [1]
+    # db_types = ['local']    
+    # isolation_levels = ['read_uncommitted', 'serializable']
+    # concurrent_connections = [1]
 
     for db_type in db_types:
         for isolation_lvl in isolation_levels:

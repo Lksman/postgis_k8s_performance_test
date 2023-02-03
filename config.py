@@ -3,7 +3,7 @@ import secrets
 db_single_node_details = {
     'dbname': 'postgres',
     'user': 'postgres',
-    'password ': secrets.db_single_node_secrets['password'],
+    'password': secrets.db_single_node_secrets['password'],
     'host': secrets.db_single_node_secrets['host'],
     'port': secrets.db_single_node_secrets['port']
 }
