@@ -27,7 +27,7 @@ def set_db_isolation_lvl(db: DatabaseConnector, isolation_lvl: str) -> None:
     
 
 def execute_single_query(isolation_lvl: str = None, concurrent: int = 1, query: str = None, db_type: str = None) -> dict:
-    logging.info("Testing performance on {} with {} concurrent connections and isolation level {}".format(db_type, concurrent, isolation_lvl))
+    #logging.info("Testing performance on {} with {} concurrent connections and isolation level {}".format(db_type, concurrent, isolation_lvl))
     if db_type == 'single_node':
         db = DatabaseConnector(**config.db_single_node_details)
     elif db_type == 'cluster':
@@ -87,19 +87,25 @@ if __name__ == '__main__':
                 logging.info("Testing performance of {} concurrent connections".format(concurrent))
                 queries = config.queries.values()
                 for query in queries:
+                    logging.info("Testing performance of query {}".format(query))
                     for _ in range(concurrent):
                         t = CustomThread(target=execute_single_query, args=(isolation_lvl, concurrent, query, db_type))
                         threads.append(t)
                         t.start()
+                        #t.join()
+                        #logging.debug("Thread {} finished".format(t.name))
+
+                    for t in threads:
                         t.join()
                         logging.debug("Thread {} finished".format(t.name))
-            
 
-            for t in threads:
-                list_of_entries.append(t.value)
+                    for t in threads:
+                        list_of_entries.append(t.value)
 
-    # for v in list_of_entries:
-    #     print(v)
+                    threads = []
+
+    logging.info("Finished testing performance")
+
 
     csv_writer = CSVWriter('performance.csv')
     csv_writer.fieldnames = list(ENTRY.keys())
