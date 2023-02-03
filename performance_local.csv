@@ -1,0 +1,977 @@
+db_type,isolation_lvl,concurrent,query,planning_time,execution_time
+local,read_uncommitted,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.821 ms,1905.999 ms
+local,read_uncommitted,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",5.567 ms,28.613 ms
+local,read_uncommitted,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.505 ms,97.582 ms
+local,read_uncommitted,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",5.480 ms,52.631 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.037 ms,2293.231 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.036 ms,2253.196 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.086 ms,2313.275 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.185 ms,2358.113 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.997 ms,2349.952 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.178 ms,2293.805 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.186 ms,2303.188 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.065 ms,2266.786 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.265 ms,2268.660 ms
+local,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.199 ms,2282.280 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",8.110 ms,43.014 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.581 ms,42.414 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.737 ms,41.814 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.222 ms,45.372 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.777 ms,44.261 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.892 ms,38.700 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",8.505 ms,40.816 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.508 ms,42.244 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",9.353 ms,40.700 ms
+local,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.605 ms,40.819 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.581 ms,130.029 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.656 ms,126.561 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.681 ms,138.754 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.742 ms,124.565 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.720 ms,134.394 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.770 ms,135.405 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.689 ms,130.299 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.682 ms,128.984 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.834 ms,133.635 ms
+local,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.864 ms,127.416 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.340 ms,64.494 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.907 ms,62.445 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.741 ms,64.407 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.159 ms,67.462 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.640 ms,63.842 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",9.296 ms,62.105 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.131 ms,65.745 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",10.070 ms,60.334 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",10.045 ms,57.662 ms
+local,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",10.021 ms,61.124 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.288 ms,3386.113 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.290 ms,3346.225 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.227 ms,3526.398 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.363 ms,3405.091 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.261 ms,5670.783 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.217 ms,3354.073 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.301 ms,5240.161 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.275 ms,3340.974 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.218 ms,3871.478 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.215 ms,3271.093 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.185 ms,6757.305 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.345 ms,3327.078 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.482 ms,3591.028 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.252 ms,6282.441 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.316 ms,3556.999 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.946 ms,5267.824 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,22.522 ms,5776.533 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.713 ms,3366.627 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,13.108 ms,3438.116 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.699 ms,3526.390 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.624 ms,5681.851 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,13.835 ms,5229.583 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.671 ms,3473.796 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.357 ms,5330.002 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.321 ms,6579.324 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.504 ms,6322.203 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.712 ms,5626.126 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.649 ms,5197.006 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.332 ms,6398.467 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.441 ms,6276.998 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.573 ms,5480.629 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.463 ms,4723.713 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.351 ms,5344.307 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.505 ms,3310.631 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.596 ms,6690.210 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.385 ms,4671.445 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.292 ms,3681.930 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.373 ms,4724.963 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.310 ms,3423.820 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.430 ms,3368.831 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.234 ms,3572.713 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.257 ms,5439.217 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.306 ms,3695.993 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.329 ms,3775.406 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.409 ms,3412.887 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.722 ms,3952.316 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.222 ms,3231.086 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.482 ms,5116.774 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.321 ms,3365.365 ms
+local,read_uncommitted,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.324 ms,3651.335 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",19.583 ms,100.838 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.142 ms,59.642 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",10.638 ms,95.274 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",9.211 ms,61.048 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.792 ms,65.753 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.009 ms,64.576 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.733 ms,91.784 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",23.707 ms,105.632 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.187 ms,61.067 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",16.464 ms,94.380 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",16.960 ms,106.380 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",20.331 ms,98.126 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.003 ms,59.449 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.673 ms,80.033 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",18.477 ms,98.852 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.509 ms,63.304 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.223 ms,79.534 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",37.612 ms,109.946 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",16.015 ms,61.376 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",28.486 ms,66.848 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",38.906 ms,101.667 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",19.256 ms,124.491 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",26.601 ms,84.748 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",30.096 ms,59.557 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",23.186 ms,66.382 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",26.711 ms,81.772 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",24.009 ms,64.398 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",28.843 ms,88.800 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.776 ms,98.682 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",25.663 ms,61.365 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",21.598 ms,71.126 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",30.708 ms,69.450 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",33.290 ms,74.736 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",25.326 ms,56.388 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",25.765 ms,80.405 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",24.304 ms,58.018 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",23.743 ms,93.892 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.685 ms,69.716 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",22.725 ms,78.890 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.673 ms,66.630 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.444 ms,80.183 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.852 ms,68.277 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",10.923 ms,69.421 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.362 ms,58.958 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.144 ms,63.683 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.245 ms,59.678 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.817 ms,62.786 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",10.719 ms,62.802 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.990 ms,62.591 ms
+local,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",10.825 ms,58.935 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.881 ms,167.012 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.768 ms,185.051 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.736 ms,174.856 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.788 ms,201.954 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.727 ms,153.905 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.713 ms,192.830 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.741 ms,161.648 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2.993 ms,242.175 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.698 ms,178.212 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.764 ms,222.598 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.838 ms,223.784 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.793 ms,218.610 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.893 ms,189.169 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.751 ms,200.641 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3.619 ms,203.779 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2.569 ms,243.739 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4.147 ms,370.096 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.751 ms,199.455 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.823 ms,252.515 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.793 ms,360.266 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.796 ms,227.064 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.712 ms,366.237 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.709 ms,223.684 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.792 ms,271.779 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.739 ms,224.772 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.760 ms,211.623 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.857 ms,213.574 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.747 ms,237.945 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.810 ms,235.615 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.754 ms,224.279 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.755 ms,201.134 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.773 ms,245.953 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.776 ms,235.641 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.967 ms,277.839 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.864 ms,247.159 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.941 ms,207.614 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.109 ms,250.327 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.028 ms,173.622 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.000 ms,220.049 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.238 ms,218.082 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.944 ms,193.942 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.067 ms,229.945 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.946 ms,167.712 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.925 ms,213.759 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.819 ms,209.815 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.064 ms,223.387 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.030 ms,226.969 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.715 ms,210.292 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.531 ms,203.552 ms
+local,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.809 ms,232.543 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.976 ms,140.720 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",28.883 ms,180.910 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",22.372 ms,98.935 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.303 ms,107.548 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.409 ms,138.689 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.943 ms,152.482 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",25.155 ms,166.320 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",36.645 ms,151.932 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",24.074 ms,159.596 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",24.970 ms,153.490 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.387 ms,105.108 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",41.257 ms,184.936 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.188 ms,111.179 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.433 ms,128.750 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.567 ms,112.044 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",104.958 ms,124.867 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",104.814 ms,120.833 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",11.650 ms,98.223 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",68.597 ms,132.709 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",35.379 ms,210.422 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.149 ms,157.113 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",97.793 ms,98.721 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.399 ms,112.224 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",102.686 ms,121.592 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",144.775 ms,115.957 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",129.576 ms,118.146 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",122.878 ms,145.848 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",104.741 ms,120.489 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",60.869 ms,106.954 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",105.831 ms,132.989 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",65.814 ms,117.179 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",58.400 ms,104.968 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",60.704 ms,115.485 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",85.686 ms,120.647 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",52.793 ms,126.900 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",49.456 ms,163.742 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",52.368 ms,127.680 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",17.637 ms,119.095 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",22.909 ms,126.967 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.577 ms,118.926 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",19.516 ms,121.374 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",11.134 ms,129.028 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",22.029 ms,115.565 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.859 ms,146.427 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",68.639 ms,74.793 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.431 ms,116.773 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.331 ms,107.281 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",20.346 ms,129.441 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.833 ms,99.584 ms
+local,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",10.530 ms,114.424 ms
+local,read_committed,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.912 ms,1946.502 ms
+local,read_committed,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",5.601 ms,29.257 ms
+local,read_committed,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.503 ms,98.042 ms
+local,read_committed,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",5.848 ms,51.868 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.065 ms,2092.168 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.019 ms,2204.006 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.067 ms,2239.982 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.103 ms,2226.018 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.117 ms,2155.167 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.030 ms,2102.076 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.956 ms,2197.574 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.903 ms,2210.650 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.383 ms,2140.623 ms
+local,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.280 ms,2150.728 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.604 ms,34.285 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.133 ms,42.841 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.306 ms,40.148 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.851 ms,42.218 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.797 ms,37.713 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.783 ms,40.034 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.974 ms,41.569 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.672 ms,40.039 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",8.852 ms,37.829 ms
+local,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.135 ms,38.818 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.772 ms,116.114 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.756 ms,114.504 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.563 ms,116.362 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.611 ms,112.360 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.926 ms,116.892 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.867 ms,113.642 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.749 ms,115.877 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.648 ms,117.023 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.745 ms,119.498 ms
+local,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.735 ms,114.429 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.047 ms,63.791 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",6.980 ms,62.897 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",6.898 ms,62.869 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.397 ms,64.537 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",10.393 ms,65.007 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.034 ms,58.743 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.671 ms,64.756 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.370 ms,66.959 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",9.562 ms,63.714 ms
+local,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",6.718 ms,60.309 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.201 ms,3506.128 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.357 ms,3279.173 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.212 ms,4420.817 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.157 ms,3286.813 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.217 ms,3453.546 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.223 ms,4779.035 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.393 ms,3953.231 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.535 ms,4003.273 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.783 ms,3472.871 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.190 ms,5050.726 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.277 ms,4051.792 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.309 ms,4688.362 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.535 ms,6222.969 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.286 ms,4668.981 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.642 ms,5535.901 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.768 ms,3663.128 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.840 ms,3415.118 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.335 ms,6729.650 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,56.071 ms,6655.987 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.222 ms,5027.497 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.272 ms,3643.906 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.381 ms,6794.652 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.320 ms,5837.297 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.519 ms,7605.899 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,37.155 ms,5435.315 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,27.766 ms,6945.353 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.665 ms,6181.836 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.705 ms,6830.598 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.508 ms,3594.054 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.535 ms,7140.552 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.377 ms,5751.411 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.569 ms,5562.636 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.590 ms,6799.764 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.530 ms,5245.651 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.372 ms,6531.862 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.525 ms,7541.970 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.511 ms,5693.130 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.300 ms,5648.207 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.285 ms,5526.977 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.303 ms,4560.127 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.568 ms,5137.908 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.498 ms,5963.315 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.290 ms,5120.937 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.614 ms,6606.925 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.218 ms,5080.481 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.363 ms,3836.360 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.569 ms,7410.882 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.367 ms,5729.752 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.254 ms,4168.962 ms
+local,read_committed,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.317 ms,5152.227 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.382 ms,81.523 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.027 ms,70.196 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.626 ms,57.828 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.195 ms,63.257 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.919 ms,128.013 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",9.537 ms,104.120 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.561 ms,97.251 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",21.157 ms,123.359 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.216 ms,59.017 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",35.149 ms,97.877 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",39.920 ms,99.708 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.227 ms,60.751 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.229 ms,175.419 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.118 ms,103.319 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.285 ms,89.261 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",21.283 ms,116.922 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",107.078 ms,78.610 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",23.591 ms,76.713 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",18.921 ms,78.002 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",18.220 ms,76.990 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",44.625 ms,169.746 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",23.896 ms,69.729 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",24.531 ms,63.409 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.911 ms,98.926 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",53.328 ms,68.111 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",76.801 ms,88.774 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",45.418 ms,93.106 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",69.395 ms,122.352 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",38.546 ms,77.345 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",38.009 ms,159.544 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",10.695 ms,93.183 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",58.603 ms,88.277 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.338 ms,81.986 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",31.480 ms,62.647 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",36.480 ms,74.012 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.476 ms,91.599 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",32.189 ms,90.500 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",36.107 ms,79.854 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.166 ms,69.980 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.106 ms,83.080 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.455 ms,92.449 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.645 ms,72.884 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.491 ms,91.308 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.782 ms,74.231 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.822 ms,73.456 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.337 ms,68.639 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.290 ms,64.693 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.402 ms,70.309 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.047 ms,65.259 ms
+local,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.797 ms,72.342 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.860 ms,181.860 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.748 ms,163.683 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.692 ms,183.635 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.742 ms,156.495 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.694 ms,204.511 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.742 ms,152.663 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.708 ms,226.588 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.707 ms,175.743 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.734 ms,216.324 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.870 ms,180.374 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.756 ms,230.196 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.764 ms,198.566 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.755 ms,234.795 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.792 ms,199.423 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.704 ms,229.735 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.796 ms,184.124 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.785 ms,213.450 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.774 ms,219.632 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.888 ms,294.095 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4.765 ms,374.733 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.744 ms,220.507 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.956 ms,344.092 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.829 ms,207.153 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.874 ms,291.004 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.807 ms,241.708 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.049 ms,244.860 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.161 ms,217.451 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.130 ms,288.978 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.902 ms,271.453 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.006 ms,243.001 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.774 ms,265.108 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.653 ms,254.793 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.984 ms,236.571 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.802 ms,256.212 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.885 ms,304.471 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.717 ms,274.746 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.668 ms,228.040 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.652 ms,274.875 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.782 ms,286.335 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.892 ms,237.669 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.744 ms,285.613 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.030 ms,246.681 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.026 ms,299.629 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.896 ms,255.141 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.696 ms,252.740 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.131 ms,188.589 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.773 ms,218.307 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.730 ms,251.309 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.923 ms,305.754 ms
+local,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.750 ms,269.114 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",31.371 ms,150.472 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.717 ms,97.682 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.734 ms,127.314 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",11.643 ms,131.294 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.724 ms,126.483 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.897 ms,123.593 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.362 ms,169.549 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",24.255 ms,148.407 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.554 ms,119.394 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.065 ms,114.090 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",29.510 ms,132.645 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",31.966 ms,186.351 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",35.643 ms,253.998 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",28.035 ms,194.701 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",31.083 ms,181.113 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",27.556 ms,125.860 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",17.333 ms,124.687 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",32.330 ms,163.071 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",27.693 ms,188.580 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.484 ms,124.456 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.612 ms,96.058 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",45.683 ms,166.754 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",22.600 ms,172.905 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",35.507 ms,169.829 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",60.242 ms,143.288 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",40.907 ms,147.281 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",123.165 ms,121.498 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",146.005 ms,115.933 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.824 ms,147.508 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",41.820 ms,107.899 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",40.435 ms,119.248 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",49.429 ms,121.834 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.729 ms,120.939 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",108.232 ms,120.958 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",106.312 ms,108.308 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",31.924 ms,100.164 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",32.831 ms,113.357 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",41.559 ms,108.974 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",42.704 ms,107.416 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",22.144 ms,104.135 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",22.752 ms,105.005 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",25.743 ms,94.129 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",27.922 ms,100.661 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.817 ms,92.627 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.630 ms,85.690 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.403 ms,100.188 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.834 ms,109.823 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.167 ms,88.742 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.724 ms,94.258 ms
+local,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.449 ms,92.148 ms
+local,repeatable_read,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.854 ms,1837.081 ms
+local,repeatable_read,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",5.387 ms,30.160 ms
+local,repeatable_read,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.677 ms,99.644 ms
+local,repeatable_read,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",5.804 ms,54.351 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.070 ms,2178.888 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.060 ms,2249.950 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.210 ms,2209.246 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.177 ms,2239.448 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.943 ms,2277.996 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.900 ms,2188.320 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.298 ms,2194.043 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.412 ms,2200.702 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.185 ms,2243.871 ms
+local,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.083 ms,2165.189 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.619 ms,42.848 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.124 ms,41.616 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.090 ms,40.712 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.228 ms,50.189 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.276 ms,49.289 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",8.019 ms,45.227 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.259 ms,41.481 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.346 ms,37.086 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.639 ms,39.199 ms
+local,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.910 ms,41.374 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.625 ms,119.498 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.708 ms,112.511 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.759 ms,124.052 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.582 ms,117.522 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.752 ms,121.138 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.732 ms,116.248 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.786 ms,116.050 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.784 ms,123.644 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.790 ms,120.389 ms
+local,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.784 ms,127.859 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.457 ms,64.582 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.300 ms,64.505 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.046 ms,62.891 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.871 ms,66.642 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.459 ms,69.142 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.843 ms,65.458 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.918 ms,63.528 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.622 ms,60.167 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",8.781 ms,66.818 ms
+local,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",9.036 ms,59.248 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.290 ms,3225.407 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.303 ms,3454.562 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.152 ms,3273.494 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.258 ms,3475.219 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.165 ms,5223.906 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.213 ms,3337.581 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.345 ms,3395.782 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.292 ms,3350.622 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.882 ms,3404.341 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.183 ms,5566.434 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.798 ms,3279.051 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,3.026 ms,6930.100 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.324 ms,3379.714 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.946 ms,3437.125 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,34.062 ms,5626.029 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.493 ms,3436.920 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.591 ms,5335.098 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.823 ms,3436.989 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.574 ms,6589.863 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.968 ms,3481.363 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.795 ms,5347.878 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.390 ms,3394.614 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,17.209 ms,5327.884 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.482 ms,3360.371 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.513 ms,5317.736 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.510 ms,6946.507 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.671 ms,6983.635 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.618 ms,5477.191 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.500 ms,6578.420 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.382 ms,5598.447 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.291 ms,5187.322 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.256 ms,5496.308 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.296 ms,3693.706 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.484 ms,5377.502 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.292 ms,5801.596 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.491 ms,6423.397 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.230 ms,6388.493 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.294 ms,6070.744 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.291 ms,4813.292 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.289 ms,6186.945 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.394 ms,3922.349 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.238 ms,5274.180 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.301 ms,4448.847 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.274 ms,6287.988 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.297 ms,3116.334 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.357 ms,6121.889 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.275 ms,4293.590 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.246 ms,6137.579 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.298 ms,3955.222 ms
+local,repeatable_read,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.273 ms,5836.419 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.818 ms,67.156 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.172 ms,104.427 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.758 ms,77.780 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.869 ms,108.451 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.640 ms,69.295 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.884 ms,114.553 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.003 ms,88.773 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.828 ms,58.612 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.508 ms,72.726 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.894 ms,91.876 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.187 ms,71.000 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",25.843 ms,154.938 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.656 ms,69.419 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",20.910 ms,79.063 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.714 ms,128.712 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",107.356 ms,115.336 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.923 ms,97.637 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",41.188 ms,78.910 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",41.257 ms,75.451 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",37.135 ms,97.884 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",42.136 ms,68.149 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",45.986 ms,57.831 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",40.562 ms,78.711 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.437 ms,74.117 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",62.669 ms,61.763 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.608 ms,81.921 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",30.695 ms,58.992 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",16.791 ms,83.969 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",53.169 ms,103.116 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",35.258 ms,64.088 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",23.916 ms,76.421 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.776 ms,99.227 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",42.515 ms,92.700 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",30.322 ms,63.634 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.873 ms,89.814 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",18.106 ms,100.346 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",23.173 ms,70.680 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",20.765 ms,73.844 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",22.471 ms,74.465 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.224 ms,85.438 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.466 ms,77.945 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.743 ms,79.263 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.313 ms,78.637 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.909 ms,67.757 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.846 ms,76.334 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.657 ms,91.811 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",15.289 ms,85.746 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.262 ms,72.953 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",17.813 ms,73.406 ms
+local,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.262 ms,71.646 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.823 ms,206.109 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.812 ms,179.665 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.734 ms,180.119 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.780 ms,166.832 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.721 ms,202.968 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.786 ms,252.240 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.908 ms,181.608 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.727 ms,196.120 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.811 ms,197.420 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.760 ms,183.086 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.761 ms,236.465 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2.024 ms,288.970 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.739 ms,212.547 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.827 ms,400.609 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.724 ms,248.234 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.745 ms,236.528 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.884 ms,279.254 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.400 ms,333.118 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.262 ms,348.915 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.640 ms,363.048 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.733 ms,363.289 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.791 ms,325.090 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.812 ms,173.803 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.730 ms,380.036 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.682 ms,310.411 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.887 ms,268.538 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.799 ms,326.013 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.067 ms,201.857 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.956 ms,286.129 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.770 ms,182.544 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.853 ms,250.393 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.196 ms,225.261 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.741 ms,307.432 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.884 ms,278.209 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.918 ms,247.321 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.855 ms,228.332 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.967 ms,280.188 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.999 ms,257.240 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.915 ms,248.856 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.862 ms,265.483 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.898 ms,216.758 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.898 ms,259.237 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.316 ms,146.364 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.153 ms,140.810 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.841 ms,188.831 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2.021 ms,143.491 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.944 ms,345.510 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.955 ms,144.471 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.949 ms,330.378 ms
+local,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.344 ms,140.432 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.143 ms,188.308 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.191 ms,124.479 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",19.852 ms,174.839 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.073 ms,132.771 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.184 ms,119.446 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",19.594 ms,132.494 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.194 ms,171.260 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.388 ms,124.465 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.184 ms,188.307 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.001 ms,175.517 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.971 ms,173.418 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.275 ms,125.114 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.880 ms,182.334 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",20.038 ms,133.548 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.543 ms,144.389 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.702 ms,168.458 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",19.382 ms,129.827 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.157 ms,181.044 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.920 ms,169.898 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.730 ms,123.418 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",23.013 ms,160.495 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.510 ms,121.168 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",121.362 ms,145.789 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",23.066 ms,123.300 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",109.782 ms,110.499 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.163 ms,106.043 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",39.325 ms,135.154 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",138.775 ms,127.250 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",38.491 ms,125.067 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",129.106 ms,104.581 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",85.388 ms,113.916 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",110.563 ms,113.108 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",111.377 ms,108.440 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",52.559 ms,120.410 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",107.673 ms,107.744 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",87.487 ms,105.705 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",31.316 ms,107.360 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",85.402 ms,104.214 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",32.293 ms,99.919 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.552 ms,89.828 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",11.505 ms,97.052 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.441 ms,114.211 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",17.102 ms,91.872 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.033 ms,96.503 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.281 ms,98.135 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",17.844 ms,93.639 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",11.874 ms,95.683 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.697 ms,94.169 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.367 ms,96.435 ms
+local,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.988 ms,88.610 ms
+local,serializable,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.901 ms,1913.404 ms
+local,serializable,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",5.220 ms,29.426 ms
+local,serializable,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.532 ms,99.822 ms
+local,serializable,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",5.707 ms,51.060 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.142 ms,2212.455 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.022 ms,2127.112 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.031 ms,2180.870 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.825 ms,2149.941 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.150 ms,2218.660 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.043 ms,2217.753 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.255 ms,2176.681 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.135 ms,2245.854 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.378 ms,2220.175 ms
+local,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.395 ms,2223.049 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.852 ms,41.828 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.254 ms,38.160 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.912 ms,42.179 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.750 ms,42.406 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.062 ms,40.482 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.187 ms,43.782 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",9.429 ms,37.512 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",7.977 ms,38.746 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",8.074 ms,41.896 ms
+local,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",8.096 ms,41.567 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.734 ms,115.113 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.672 ms,124.909 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.747 ms,116.183 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.652 ms,124.545 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.816 ms,134.309 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.760 ms,120.957 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.706 ms,115.192 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.623 ms,116.463 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.732 ms,126.327 ms
+local,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.727 ms,125.476 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.801 ms,67.061 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.763 ms,67.438 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.134 ms,68.401 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.533 ms,63.363 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.594 ms,70.698 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",9.191 ms,66.037 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",9.853 ms,58.976 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",9.922 ms,62.123 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",9.102 ms,63.621 ms
+local,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.541 ms,64.620 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.268 ms,5753.302 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.290 ms,3412.816 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.415 ms,3399.740 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.229 ms,3486.708 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.194 ms,4974.555 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.208 ms,3386.640 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.413 ms,3559.751 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.188 ms,3402.907 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.205 ms,6806.188 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.379 ms,3407.217 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,6.541 ms,3666.863 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.539 ms,3364.159 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.322 ms,5084.872 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.282 ms,6808.297 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.629 ms,3575.201 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.872 ms,5530.245 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.221 ms,4203.739 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.423 ms,3389.762 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.534 ms,3579.200 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.290 ms,5495.188 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.365 ms,3635.996 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.540 ms,6747.784 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,8.136 ms,6129.792 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.450 ms,5495.894 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.501 ms,5222.531 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,3.626 ms,6766.906 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.628 ms,4413.268 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,3.544 ms,5606.752 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.550 ms,6212.385 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.598 ms,5489.364 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.573 ms,6772.736 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.319 ms,6627.153 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,2.640 ms,5296.477 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.476 ms,5392.377 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.408 ms,4496.046 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.278 ms,6556.551 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.307 ms,5337.006 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.204 ms,3597.931 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.285 ms,4167.663 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.304 ms,3602.791 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.316 ms,5298.133 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.446 ms,5032.312 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.282 ms,6114.431 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.400 ms,4522.041 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.301 ms,3108.369 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.372 ms,4530.162 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.478 ms,3438.664 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.607 ms,3993.918 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.249 ms,6008.535 ms
+local,serializable,50,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.392 ms,4157.493 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",9.553 ms,58.977 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.258 ms,58.505 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.707 ms,62.857 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",21.477 ms,111.374 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.349 ms,56.964 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",19.599 ms,121.378 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",52.055 ms,120.226 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.347 ms,79.791 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.247 ms,81.883 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",19.669 ms,172.528 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",19.828 ms,91.271 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",21.363 ms,109.077 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",60.015 ms,110.708 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",18.000 ms,139.038 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",16.597 ms,101.096 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.137 ms,89.521 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",30.105 ms,109.506 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",45.721 ms,93.486 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",61.351 ms,70.673 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",22.686 ms,90.685 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",53.452 ms,89.926 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",36.887 ms,91.290 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",20.839 ms,103.143 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",29.422 ms,100.159 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",44.903 ms,90.028 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",36.832 ms,79.287 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",58.477 ms,59.981 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",19.395 ms,62.294 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",59.098 ms,86.877 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",51.806 ms,79.600 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",43.108 ms,71.245 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",21.311 ms,67.551 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",55.173 ms,83.770 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",45.698 ms,107.450 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",28.016 ms,75.911 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",25.492 ms,82.808 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",16.250 ms,56.745 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.895 ms,84.455 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.200 ms,54.776 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",16.420 ms,59.096 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",16.292 ms,54.619 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",11.406 ms,70.958 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",38.257 ms,58.797 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",20.942 ms,84.160 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",29.999 ms,65.685 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",30.822 ms,63.025 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",37.575 ms,59.226 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",20.271 ms,66.799 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",35.554 ms,59.268 ms
+local,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",22.148 ms,59.501 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.794 ms,229.025 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.801 ms,160.485 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.756 ms,212.983 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.762 ms,176.053 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.742 ms,150.471 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.411 ms,218.936 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.728 ms,223.243 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.736 ms,159.539 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.732 ms,222.755 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.763 ms,159.402 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.735 ms,189.423 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.700 ms,225.414 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.794 ms,229.349 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.716 ms,248.757 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2.971 ms,254.462 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.748 ms,186.657 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.931 ms,214.246 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.694 ms,207.166 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.680 ms,216.970 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.754 ms,294.407 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.751 ms,290.899 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.807 ms,187.189 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.721 ms,225.391 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.718 ms,301.940 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.723 ms,226.371 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.010 ms,256.455 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.758 ms,305.149 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.821 ms,318.709 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.709 ms,249.777 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.751 ms,255.968 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.747 ms,291.179 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.913 ms,215.541 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.925 ms,201.098 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.756 ms,167.174 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.022 ms,179.421 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.789 ms,196.828 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.739 ms,173.287 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.845 ms,177.639 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.896 ms,170.736 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.190 ms,208.930 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.896 ms,178.045 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.927 ms,209.613 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.919 ms,181.996 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1.751 ms,194.328 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.718 ms,167.749 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.839 ms,197.747 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.695 ms,177.622 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.791 ms,180.205 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.758 ms,177.409 ms
+local,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",0.930 ms,196.525 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",34.542 ms,197.523 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.179 ms,118.901 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.304 ms,120.429 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",19.384 ms,200.326 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.496 ms,180.273 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.589 ms,107.417 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.157 ms,154.359 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.566 ms,115.605 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",21.869 ms,118.986 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",9.993 ms,104.820 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",23.798 ms,144.443 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.407 ms,137.436 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",29.334 ms,131.245 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",23.555 ms,214.847 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",20.039 ms,148.524 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",37.934 ms,272.494 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",27.889 ms,161.825 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",22.311 ms,132.595 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",53.997 ms,212.524 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",23.074 ms,134.904 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",23.160 ms,132.450 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",23.612 ms,125.619 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",117.075 ms,144.019 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",79.165 ms,259.046 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",97.456 ms,139.687 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",155.579 ms,176.092 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",99.344 ms,148.766 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",101.127 ms,175.732 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",110.222 ms,131.165 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",108.798 ms,126.808 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",102.341 ms,125.974 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",28.600 ms,113.692 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",80.411 ms,146.057 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",32.569 ms,141.684 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",86.042 ms,144.167 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",97.610 ms,193.907 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",22.693 ms,120.207 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",123.467 ms,72.458 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",24.188 ms,100.723 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",43.263 ms,113.136 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",28.873 ms,149.155 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",65.984 ms,89.950 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",20.767 ms,106.643 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",40.615 ms,130.215 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.388 ms,117.762 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",27.091 ms,138.074 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.589 ms,123.959 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",106.736 ms,74.965 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",31.444 ms,99.040 ms
+local,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",42.514 ms,105.368 ms

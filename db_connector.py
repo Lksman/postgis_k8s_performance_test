@@ -1,8 +1,9 @@
 import psycopg2
 import logging
+from time import sleep
 
 class DatabaseConnector():
-    def __init__(self, dbname:str=None, user:str=None, password:str=None, host:str=None, port:str=None):
+    def __init__(self, dbname:str=None, user:str=None, password:str=None, host:str=None, port:str=None, keepalive_kwargs:dict=None):
         if dbname is None:
             raise ValueError('dbname is required')
         if user is None:
@@ -13,8 +14,21 @@ class DatabaseConnector():
             raise ValueError('host is required')
         if port is None:
             logging.warning('port is not specified, defaulting to 5432')
+        if keepalive_kwargs is None:
+            keepalive_kwargs = {}
 
-        self.conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
+        max_retries = 5
+        delay_between_retries = 10
+        for _ in range(max_retries):
+            try:
+                self.conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port, **keepalive_kwargs)
+            except Exception as e:
+                logging.error(f"Failed to connect to database ({e}), retrying in {delay_between_retries} seconds...")
+                sleep(delay_between_retries)
+                continue
+            else:
+                break
+    
         self.cur = self.conn.cursor()
     
 
@@ -29,7 +43,6 @@ class DatabaseConnector():
 
 
     def close(self) -> None:
-        self.cur.close()
         self.conn.close()
 
 

@@ -1,27 +1,44 @@
 import secrets
 
-db_single_node_details = {
+_keepalive_kwargs = {
+    'keepalives': 1,
+    'keepalives_idle': 30,
+    'keepalives_interval': 10,
+    'keepalives_count': 5
+}
+
+
+_db_single_node_details = {
     'dbname': 'postgres',
     'user': 'postgres',
     'password': secrets.db_single_node_secrets['password'],
     'host': secrets.db_single_node_secrets['host'],
-    'port': secrets.db_single_node_secrets['port']
+    'port': secrets.db_single_node_secrets['port'],
+    'keepalive_kwargs': _keepalive_kwargs
 }
 
-db_cluster_details = {
+_db_cluster_details = {
     'dbname': 'postgres',
     'user': 'postgres',
     'password': secrets.db_cluster_secrets['password'],
     'host': secrets.db_cluster_secrets['host'],
-    'port': secrets.db_cluster_secrets['port']
+    'port': secrets.db_cluster_secrets['port'],
+    'keepalive_kwargs': _keepalive_kwargs
 }
 
-db_local_details = {
+_db_local_details = {
     'dbname': 'nyc_streets',
     'user' : 'postgres',
     'password' : secrets.db_local_secrets['password'],
     'host' : secrets.db_local_secrets['host'],
     'port' : secrets.db_local_secrets['port']
+}
+
+
+db_configs = {
+    'single_node': _db_single_node_details,
+    'cluster': _db_cluster_details,
+    'local': _db_local_details
 }
 
 # possible additional queries: create table, create index
@@ -35,12 +52,17 @@ queries = {
                     GROUP BY nb.boroname \
                     HAVING nb.boroname = 'Brooklyn'",
     
-    'Intersection' : 'SELECT ST_Intersection(mc.geom, mcb.geom) FROM \
-	                    (SELECT ST_AsText(ST_Union(geom)) AS geom FROM nyc_census_blocks) AS mc, \
-	                    (SELECT ST_AsText(ST_Buffer(ST_Union(geom), 1000)) AS geom FROM nyc_census_blocks) AS mcb;',
+    'Intersection' : 'SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb',
 
     'DWithin' : 'SELECT sum(distinct popn_total) AS population_within_500m_of_subway \
                         FROM nyc_census_blocks AS cb \
                         JOIN nyc_subway_stations AS sub \
-                        ON ST_DWithin(cb.geom, sub.geom, 500)',
+                        ON ST_DWithin(cb.geom, sub.geom, 500)'
+}
+
+aux_queries = {
+    'DropTable_MergedCensus' : 'DROP TABLE IF EXISTS mc',
+    'DropTable_MergedCensusBuffer' : 'DROP TABLE IF EXISTS mcb',
+    'CreateTable_MergedCensus' : 'CREATE TABLE mc as (SELECT ST_AsText(ST_Union(geom)) AS geom FROM nyc_census_blocks)',
+    'CreateTable_MergedCensusBuffer' : 'CREATE TABLE mcb as (SELECT ST_AsText(ST_Buffer(ST_Union(geom), 1000)) AS geom FROM nyc_census_blocks)'
 }

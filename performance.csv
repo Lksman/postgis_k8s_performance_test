@@ -1,9 +1,0 @@
-db_type,isolation_lvl,concurrent,query,planning_time,execution_time
-local,read_uncommitted,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,1.169 ms,1884.103 ms
-local,read_uncommitted,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",6.366 ms,31.303 ms
-local,read_uncommitted,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM (SELECT ST_AsText(ST_Union(geom)) AS geom FROM nyc_census_blocks) AS mc, (SELECT ST_AsText(ST_Buffer(ST_Union(geom), 1000)) AS geom FROM nyc_census_blocks) AS mcb;",0.898 ms,6554.229 ms
-local,read_uncommitted,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",7.277 ms,55.872 ms
-local,serializable,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.833 ms,1890.334 ms
-local,serializable,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",5.473 ms,30.057 ms
-local,serializable,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM (SELECT ST_AsText(ST_Union(geom)) AS geom FROM nyc_census_blocks) AS mc, (SELECT ST_AsText(ST_Buffer(ST_Union(geom), 1000)) AS geom FROM nyc_census_blocks) AS mcb;",1.058 ms,6527.726 ms
-local,serializable,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",6.655 ms,51.617 ms

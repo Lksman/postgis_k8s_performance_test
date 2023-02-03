@@ -1,9 +1,12 @@
-import config
 import logging
 import re
+import sys
+import time
 from custom_thread import CustomThread
 from db_connector import DatabaseConnector
 from data_to_csv import CSVWriter
+import config
+import utils
 
 ENTRY = {
     'db_type': None,
@@ -15,8 +18,20 @@ ENTRY = {
 }
 
 
-def configure_logging() -> None:
-    logging.basicConfig(filename='performance.log', filemode='w+', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+def configure_logging(id: str) -> None:
+    if id is None:
+        stdout_handler = logging.StreamHandler(stream=sys.stdout)
+        handlers = [stdout_handler]
+    else:
+        file_handler = logging.FileHandler(filename=f'performance_{id}.log')
+        stdout_handler = logging.StreamHandler(stream=sys.stdout)
+        handlers = [file_handler, stdout_handler]
+
+    logging.basicConfig(
+        level=logging.DEBUG, 
+        format='[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s',
+        handlers=handlers
+    )
 
 
 def set_db_isolation_lvl(db: DatabaseConnector, isolation_lvl: str) -> None:
@@ -28,15 +43,8 @@ def set_db_isolation_lvl(db: DatabaseConnector, isolation_lvl: str) -> None:
 
 def execute_single_query(isolation_lvl: str = None, concurrent: int = 1, query: str = None, db_type: str = None) -> dict:
     #logging.info("Testing performance on {} with {} concurrent connections and isolation level {}".format(db_type, concurrent, isolation_lvl))
-    if db_type == 'single_node':
-        db = DatabaseConnector(**config.db_single_node_details)
-    elif db_type == 'cluster':
-        db = DatabaseConnector(**config.db_cluster_details)
-    elif db_type == 'local':
-        db = DatabaseConnector(**config.db_local_details)
-    else:
-        raise ValueError("Invalid db_type")
 
+    db = DatabaseConnector(**config.db_configs[db_type])
     res = db.explain_analyze(query)
     db.close()
 
@@ -52,37 +60,47 @@ def execute_single_query(isolation_lvl: str = None, concurrent: int = 1, query: 
 
 
 if __name__ == '__main__':
-    # set up logging
-    configure_logging()
 
-    list_of_entries = list()
 
+    # setting up test parameters
     db_types = ['single_node', 'cluster']
     isolation_levels = ['read_uncommitted', 'read_committed', 'repeatable_read', 'serializable']
-    concurrent_connections = [1, 10, 100]
+    concurrent_connections = [1, 10, 50]
 
     # db_types = ['local']    
     # isolation_levels = ['read_uncommitted', 'serializable']
     # concurrent_connections = [1]
 
+    # clean stale logs and csv files
+    # utils.clean_dir()
+
     for db_type in db_types:
+
+
+        # set up logging
+        configure_logging(db_type)
+        
+        # creating aux. tables to prevent memory errors on expensive queries
+        logging.info("creating aux. tables")
+        db = DatabaseConnector(**config.db_configs[db_type])
+        for query in config.aux_queries.values():
+            db.execute(query)
+        db.close()
+
+        # setting up csv writer
+        csv_writer = CSVWriter(f'performance_{db_type}.csv')
+        csv_writer.fieldnames = list(ENTRY.keys())
+        csv_writer.write_header()
+
+        # testing performance
         for isolation_lvl in isolation_levels:
             logging.info("Testing performance on {} with isolation level {}".format(db_type, isolation_lvl))
-            if db_type == 'local':
-                db = DatabaseConnector(**config.db_local_details)
-                set_db_isolation_lvl(db, isolation_lvl)
-                db.close()
-            if db_type == 'single_node':
-                db = DatabaseConnector(**config.db_single_node_details)
-                set_db_isolation_lvl(db, isolation_lvl)
-                db.close()
-            if db_type == 'cluster':
-                db = DatabaseConnector(**config.db_cluster_details)
-                set_db_isolation_lvl(db, isolation_lvl)
-                db.close()
-            
 
-            threads = []
+            db = DatabaseConnector(**config.db_configs[db_type])
+            set_db_isolation_lvl(db, isolation_lvl)
+            db.close()
+
+            threads: list[CustomThread] = []
             for concurrent in concurrent_connections:
                 logging.info("Testing performance of {} concurrent connections".format(concurrent))
                 queries = config.queries.values()
@@ -92,24 +110,17 @@ if __name__ == '__main__':
                         t = CustomThread(target=execute_single_query, args=(isolation_lvl, concurrent, query, db_type))
                         threads.append(t)
                         t.start()
-                        #t.join()
-                        #logging.debug("Thread {} finished".format(t.name))
 
                     for t in threads:
                         t.join()
                         logging.debug("Thread {} finished".format(t.name))
 
                     for t in threads:
-                        list_of_entries.append(t.value)
+                        csv_writer.append_entry(t.value)
 
                     threads = []
+                    #logging.info("Waiting for 1 minute to stabilize the system")
+                    #time.sleep(60) # wait for 1 minute to stabilize the system
 
-    logging.info("Finished testing performance")
 
-
-    csv_writer = CSVWriter('performance.csv')
-    csv_writer.fieldnames = list(ENTRY.keys())
-    csv_writer.write_header()
-    for entry in list_of_entries:
-        csv_writer.append_entry(entry)
-    
+    logging.info("Done")
