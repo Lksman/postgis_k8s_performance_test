@@ -87,7 +87,7 @@ if __name__ == '__main__':
                 logging.info("Testing performance of {} concurrent connections".format(concurrent))
                 queries = config.queries.values()
                 for query in queries:
-                    logging.info("Testing performance of query {}".format(query))
+                    logging.info("Testing performance of query {}".format(re.sub(r'\s+', ' ', query)))
                     for _ in range(concurrent):
                         t = CustomThread(target=execute_single_query, args=(isolation_lvl, concurrent, query, db_type))
                         threads.append(t)
