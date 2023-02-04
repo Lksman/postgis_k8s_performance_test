@@ -3,3 +3,6 @@ venv
 notes.txt
 __pycache__
 performance*.log
+.vscode
+.idea/*
+.idea

@@ -67,6 +67,9 @@ if __name__ == '__main__':
     isolation_levels = ['read_uncommitted', 'read_committed', 'repeatable_read', 'serializable']
     concurrent_connections = [1, 10, 50]
 
+    db_types = ['cluster']
+
+
     # db_types = ['local']    
     # isolation_levels = ['read_uncommitted', 'serializable']
     # concurrent_connections = [1]
@@ -88,7 +91,7 @@ if __name__ == '__main__':
         db.close()
 
         # setting up csv writer
-        csv_writer = CSVWriter(f'performance_{db_type}.csv')
+        csv_writer = CSVWriter(f'data/performance_{db_type}.csv')
         csv_writer.fieldnames = list(ENTRY.keys())
         csv_writer.write_header()
 
