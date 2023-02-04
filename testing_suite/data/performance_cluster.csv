@@ -1,7 +1,7 @@
 db_type,isolation_lvl,concurrent,query,planning_time,execution_time
 cluster,read_uncommitted,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.552 ms,5135.220 ms
 cluster,read_uncommitted,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",24.266 ms,149.136 ms
-cluster,read_uncommitted,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.505 ms, Inlining 84.668 ms, Optimization 33.204 ms, Emission 10.654 ms, Total 129.030 ms",357.021 ms
+cluster,read_uncommitted,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",129.030 ms,357.021 ms
 cluster,read_uncommitted,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",16.927 ms,145.258 ms
 cluster,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.577 ms,36708.224 ms
 cluster,read_uncommitted,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.633 ms,40201.224 ms
@@ -23,16 +23,16 @@ cluster,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_st
 cluster,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.319 ms,66.759 ms
 cluster,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.509 ms,65.499 ms
 cluster,read_uncommitted,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",22.830 ms,106.085 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.502 ms, Inlining 77.105 ms, Optimization 31.938 ms, Emission 10.566 ms, Total 120.111 ms",364.333 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.835 ms, Inlining 455.635 ms, Optimization 564.950 ms, Emission 120.611 ms, Total 1142.031 ms",2683.969 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.799 ms, Inlining 526.789 ms, Optimization 380.085 ms, Emission 107.062 ms, Total 1014.736 ms",2518.468 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.003 ms, Inlining 948.083 ms, Optimization 158.803 ms, Emission 16.119 ms, Total 1124.008 ms",2195.618 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 11.988 ms, Inlining 1114.940 ms, Optimization 340.971 ms, Emission 81.543 ms, Total 1549.441 ms",2716.905 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 6.125 ms, Inlining 856.214 ms, Optimization 206.841 ms, Emission 118.078 ms, Total 1187.258 ms",2284.615 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.742 ms, Inlining 240.768 ms, Optimization 47.192 ms, Emission 15.823 ms, Total 304.525 ms",1863.396 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.832 ms, Inlining 665.774 ms, Optimization 89.850 ms, Emission 69.516 ms, Total 825.971 ms",2416.033 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.821 ms, Inlining 516.752 ms, Optimization 331.127 ms, Emission 99.066 ms, Total 947.767 ms",2375.946 ms
-cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.871 ms, Inlining 914.193 ms, Optimization 329.891 ms, Emission 55.022 ms, Total 1299.977 ms",2372.366 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",120.111 ms,364.333 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1142.031 ms,2683.969 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1014.736 ms,2518.468 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1124.008 ms,2195.618 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1549.441 ms,2716.905 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1187.258 ms,2284.615 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",304.525 ms,1863.396 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",825.971 ms,2416.033 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",947.767 ms,2375.946 ms
+cluster,read_uncommitted,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1299.977 ms,2372.366 ms
 cluster,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.634 ms,113.776 ms
 cluster,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",19.480 ms,107.021 ms
 cluster,read_uncommitted,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.817 ms,94.976 ms
@@ -143,56 +143,56 @@ cluster,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_st
 cluster,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",40.778 ms,149.327 ms
 cluster,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",34.763 ms,148.165 ms
 cluster,read_uncommitted,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",22.227 ms,75.699 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.519 ms, Inlining 139.065 ms, Optimization 78.075 ms, Emission 57.212 ms, Total 274.870 ms",2169.570 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.835 ms, Inlining 439.899 ms, Optimization 188.555 ms, Emission 16.293 ms, Total 645.582 ms",1203.154 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.827 ms, Inlining 292.801 ms, Optimization 529.866 ms, Emission 243.039 ms, Total 1066.532 ms",2327.962 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.854 ms, Inlining 1514.837 ms, Optimization 1073.610 ms, Emission 23.716 ms, Total 2613.017 ms",5950.643 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 2.170 ms, Inlining 154.061 ms, Optimization 535.544 ms, Emission 54.040 ms, Total 745.815 ms",4841.365 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.835 ms, Inlining 2232.630 ms, Optimization 1913.264 ms, Emission 670.143 ms, Total 4816.873 ms",11880.239 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.934 ms, Inlining 1517.467 ms, Optimization 1271.037 ms, Emission 726.451 ms, Total 3515.889 ms",9992.920 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.071 ms, Inlining 2248.327 ms, Optimization 1881.548 ms, Emission 711.098 ms, Total 4842.044 ms",11651.662 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.812 ms, Inlining 1167.307 ms, Optimization 52.965 ms, Emission 16.786 ms, Total 1237.871 ms",3443.163 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.816 ms, Inlining 1578.215 ms, Optimization 1176.544 ms, Emission 542.726 ms, Total 3298.301 ms",3872.238 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.849 ms, Inlining 3538.707 ms, Optimization 1105.029 ms, Emission 15.276 ms, Total 4659.861 ms",11243.838 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.827 ms, Inlining 1510.544 ms, Optimization 1086.840 ms, Emission 838.756 ms, Total 3436.967 ms",9616.195 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.934 ms, Inlining 804.828 ms, Optimization 1273.513 ms, Emission 837.940 ms, Total 2917.214 ms",9927.584 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.071 ms, Inlining 1029.582 ms, Optimization 535.907 ms, Emission 398.976 ms, Total 1965.536 ms",10253.756 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.803 ms, Inlining 4159.168 ms, Optimization 2143.099 ms, Emission 714.546 ms, Total 7017.616 ms",13238.430 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.806 ms, Inlining 3826.032 ms, Optimization 1520.415 ms, Emission 634.247 ms, Total 5981.501 ms",12594.741 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.827 ms, Inlining 4115.771 ms, Optimization 2035.668 ms, Emission 726.899 ms, Total 6879.164 ms",11857.424 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 10.514 ms, Inlining 2903.757 ms, Optimization 1681.221 ms, Emission 531.614 ms, Total 5127.107 ms",11341.320 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.780 ms, Inlining 3584.736 ms, Optimization 855.767 ms, Emission 16.317 ms, Total 4457.599 ms",5902.867 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.785 ms, Inlining 4568.407 ms, Optimization 2264.937 ms, Emission 404.329 ms, Total 7238.457 ms",12829.288 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 33.879 ms, Inlining 4364.965 ms, Optimization 2134.082 ms, Emission 419.666 ms, Total 6952.592 ms",13661.521 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 30.878 ms, Inlining 3570.639 ms, Optimization 1896.747 ms, Emission 718.994 ms, Total 6217.257 ms",12856.974 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 78.340 ms, Inlining 3540.370 ms, Optimization 2070.795 ms, Emission 471.293 ms, Total 6160.798 ms",13261.985 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.015 ms, Inlining 1129.741 ms, Optimization 1734.523 ms, Emission 680.388 ms, Total 3545.666 ms",9957.862 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.821 ms, Inlining 4585.103 ms, Optimization 1483.021 ms, Emission 566.265 ms, Total 6635.211 ms",13003.515 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.881 ms, Inlining 4951.416 ms, Optimization 1676.940 ms, Emission 430.454 ms, Total 7059.690 ms",12531.395 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.875 ms, Inlining 4597.270 ms, Optimization 1563.149 ms, Emission 116.117 ms, Total 6277.411 ms",12937.521 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 43.921 ms, Inlining 4768.089 ms, Optimization 1135.153 ms, Emission 484.297 ms, Total 6431.460 ms",12792.437 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.769 ms, Inlining 2261.598 ms, Optimization 336.392 ms, Emission 610.306 ms, Total 3209.065 ms",9564.997 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 40.938 ms, Inlining 4227.024 ms, Optimization 1462.391 ms, Emission 162.670 ms, Total 5893.023 ms",10615.827 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.836 ms, Inlining 4644.993 ms, Optimization 1470.453 ms, Emission 480.932 ms, Total 6597.213 ms",12784.640 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 49.964 ms, Inlining 4275.351 ms, Optimization 1273.002 ms, Emission 378.859 ms, Total 5977.176 ms",12214.141 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 15.072 ms, Inlining 1815.957 ms, Optimization 1884.553 ms, Emission 463.406 ms, Total 4178.988 ms",12366.248 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.029 ms, Inlining 1024.767 ms, Optimization 1907.673 ms, Emission 332.806 ms, Total 3266.276 ms",8945.353 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.835 ms, Inlining 3396.391 ms, Optimization 1197.894 ms, Emission 483.999 ms, Total 5079.118 ms",12219.746 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.846 ms, Inlining 2738.673 ms, Optimization 62.335 ms, Emission 25.140 ms, Total 2826.994 ms",8387.249 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.878 ms, Inlining 1638.679 ms, Optimization 48.214 ms, Emission 15.238 ms, Total 1703.009 ms",6473.671 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 98.935 ms, Inlining 4484.503 ms, Optimization 1372.600 ms, Emission 409.519 ms, Total 6365.557 ms",12015.858 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.812 ms, Inlining 2640.007 ms, Optimization 866.052 ms, Emission 357.687 ms, Total 3864.557 ms",11674.252 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.949 ms, Inlining 135.581 ms, Optimization 54.220 ms, Emission 653.760 ms, Total 844.510 ms",4633.927 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.792 ms, Inlining 3533.932 ms, Optimization 829.139 ms, Emission 231.564 ms, Total 4595.427 ms",10656.353 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.855 ms, Inlining 4344.343 ms, Optimization 813.622 ms, Emission 332.094 ms, Total 5490.914 ms",11478.359 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.939 ms, Inlining 4330.966 ms, Optimization 1190.112 ms, Emission 16.235 ms, Total 5538.252 ms",10907.840 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 33.597 ms, Inlining 1011.080 ms, Optimization 2130.391 ms, Emission 567.144 ms, Total 3742.212 ms",10637.501 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 33.947 ms, Inlining 2695.909 ms, Optimization 1388.479 ms, Emission 378.866 ms, Total 4497.201 ms",8780.668 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.784 ms, Inlining 2520.386 ms, Optimization 1244.407 ms, Emission 410.864 ms, Total 4176.442 ms",10513.491 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.775 ms, Inlining 4175.850 ms, Optimization 1042.609 ms, Emission 349.108 ms, Total 5568.342 ms",11034.071 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 13.472 ms, Inlining 3033.826 ms, Optimization 264.506 ms, Emission 16.378 ms, Total 3328.182 ms",9438.834 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.987 ms, Inlining 3630.157 ms, Optimization 1541.543 ms, Emission 342.204 ms, Total 5514.890 ms",9608.020 ms
-cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.774 ms, Inlining 4307.463 ms, Optimization 848.846 ms, Emission 377.682 ms, Total 5534.765 ms",10382.936 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",274.870 ms,2169.570 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",645.582 ms,1203.154 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1066.532 ms,2327.962 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2613.017 ms,5950.643 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",745.815 ms,4841.365 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4816.873 ms,11880.239 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3515.889 ms,9992.920 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4842.044 ms,11651.662 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1237.871 ms,3443.163 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3298.301 ms,3872.238 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4659.861 ms,11243.838 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3436.967 ms,9616.195 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2917.214 ms,9927.584 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1965.536 ms,10253.756 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",7017.616 ms,13238.430 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5981.501 ms,12594.741 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6879.164 ms,11857.424 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5127.107 ms,11341.320 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4457.599 ms,5902.867 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",7238.457 ms,12829.288 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6952.592 ms,13661.521 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6217.257 ms,12856.974 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6160.798 ms,13261.985 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3545.666 ms,9957.862 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6635.211 ms,13003.515 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",7059.690 ms,12531.395 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6277.411 ms,12937.521 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6431.460 ms,12792.437 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3209.065 ms,9564.997 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5893.023 ms,10615.827 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6597.213 ms,12784.640 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5977.176 ms,12214.141 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4178.988 ms,12366.248 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3266.276 ms,8945.353 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5079.118 ms,12219.746 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2826.994 ms,8387.249 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1703.009 ms,6473.671 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6365.557 ms,12015.858 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3864.557 ms,11674.252 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",844.510 ms,4633.927 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4595.427 ms,10656.353 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5490.914 ms,11478.359 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5538.252 ms,10907.840 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3742.212 ms,10637.501 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4497.201 ms,8780.668 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4176.442 ms,10513.491 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5568.342 ms,11034.071 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3328.182 ms,9438.834 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5514.890 ms,9608.020 ms
+cluster,read_uncommitted,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5534.765 ms,10382.936 ms
 cluster,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.933 ms,87.706 ms
 cluster,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.652 ms,107.086 ms
 cluster,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",18.037 ms,107.714 ms
@@ -245,7 +245,7 @@ cluster,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_withi
 cluster,read_uncommitted,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",51.500 ms,128.665 ms
 cluster,read_committed,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.565 ms,4937.657 ms
 cluster,read_committed,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.495 ms,60.916 ms
-cluster,read_committed,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.504 ms, Inlining 82.457 ms, Optimization 31.873 ms, Emission 10.518 ms, Total 125.352 ms",359.004 ms
+cluster,read_committed,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",125.352 ms,359.004 ms
 cluster,read_committed,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.773 ms,85.555 ms
 cluster,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.567 ms,32328.690 ms
 cluster,read_committed,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.802 ms,39202.545 ms
@@ -267,16 +267,16 @@ cluster,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_stre
 cluster,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.505 ms,65.011 ms
 cluster,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.037 ms,67.299 ms
 cluster,read_committed,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.452 ms,75.365 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.516 ms, Inlining 102.268 ms, Optimization 50.236 ms, Emission 17.394 ms, Total 170.415 ms",1460.570 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.808 ms, Inlining 419.595 ms, Optimization 273.164 ms, Emission 16.173 ms, Total 709.741 ms",2428.353 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 5.887 ms, Inlining 212.909 ms, Optimization 211.422 ms, Emission 114.211 ms, Total 544.430 ms",2368.276 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.782 ms, Inlining 226.068 ms, Optimization 115.254 ms, Emission 121.544 ms, Total 463.648 ms",2139.399 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.782 ms, Inlining 1006.958 ms, Optimization 400.177 ms, Emission 85.520 ms, Total 1493.437 ms",2802.697 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 17.957 ms, Inlining 557.237 ms, Optimization 48.160 ms, Emission 16.044 ms, Total 639.398 ms",2273.929 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 31.975 ms, Inlining 984.701 ms, Optimization 216.452 ms, Emission 69.214 ms, Total 1302.343 ms",2633.962 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.859 ms, Inlining 932.738 ms, Optimization 195.512 ms, Emission 23.202 ms, Total 1152.312 ms",2331.403 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.799 ms, Inlining 335.982 ms, Optimization 428.321 ms, Emission 106.727 ms, Total 871.829 ms",2399.788 ms
-cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.956 ms, Inlining 471.525 ms, Optimization 50.251 ms, Emission 41.966 ms, Total 564.698 ms",2251.648 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",170.415 ms,1460.570 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",709.741 ms,2428.353 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",544.430 ms,2368.276 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",463.648 ms,2139.399 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1493.437 ms,2802.697 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",639.398 ms,2273.929 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1302.343 ms,2633.962 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1152.312 ms,2331.403 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",871.829 ms,2399.788 ms
+cluster,read_committed,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",564.698 ms,2251.648 ms
 cluster,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.953 ms,87.243 ms
 cluster,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.556 ms,102.289 ms
 cluster,read_committed,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.351 ms,107.833 ms
@@ -387,56 +387,56 @@ cluster,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_stre
 cluster,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.815 ms,65.575 ms
 cluster,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.823 ms,66.184 ms
 cluster,read_committed,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.293 ms,63.972 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.509 ms, Inlining 128.462 ms, Optimization 93.504 ms, Emission 34.078 ms, Total 256.553 ms",712.187 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.810 ms, Inlining 206.432 ms, Optimization 242.088 ms, Emission 85.496 ms, Total 534.826 ms",1165.267 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.986 ms, Inlining 814.516 ms, Optimization 311.800 ms, Emission 16.608 ms, Total 1143.910 ms",6138.826 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.021 ms, Inlining 902.517 ms, Optimization 641.657 ms, Emission 271.408 ms, Total 1816.603 ms",10068.956 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 9.931 ms, Inlining 826.386 ms, Optimization 362.344 ms, Emission 252.627 ms, Total 1451.288 ms",5852.545 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.787 ms, Inlining 354.587 ms, Optimization 549.036 ms, Emission 208.978 ms, Total 1113.388 ms",2587.395 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.949 ms, Inlining 1665.033 ms, Optimization 1567.458 ms, Emission 795.677 ms, Total 4029.117 ms",11994.089 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.841 ms, Inlining 1723.950 ms, Optimization 2021.061 ms, Emission 441.360 ms, Total 4187.211 ms",11290.861 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 11.482 ms, Inlining 2492.270 ms, Optimization 2377.916 ms, Emission 389.668 ms, Total 5271.336 ms",12561.042 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 14.936 ms, Inlining 2851.468 ms, Optimization 1278.395 ms, Emission 676.949 ms, Total 4821.748 ms",12374.473 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.901 ms, Inlining 2507.328 ms, Optimization 1720.115 ms, Emission 610.162 ms, Total 4838.506 ms",11712.606 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.022 ms, Inlining 1292.977 ms, Optimization 1601.202 ms, Emission 875.716 ms, Total 3770.917 ms",10047.313 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.135 ms, Inlining 663.314 ms, Optimization 614.584 ms, Emission 388.641 ms, Total 1667.673 ms",10559.972 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 34.265 ms, Inlining 2777.664 ms, Optimization 771.791 ms, Emission 40.303 ms, Total 3624.022 ms",9346.679 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.842 ms, Inlining 2700.479 ms, Optimization 2176.335 ms, Emission 615.069 ms, Total 5492.725 ms",12809.976 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.781 ms, Inlining 3918.289 ms, Optimization 2144.252 ms, Emission 717.711 ms, Total 6781.034 ms",12184.971 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.907 ms, Inlining 190.273 ms, Optimization 719.062 ms, Emission 402.650 ms, Total 1312.891 ms",7100.923 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 27.014 ms, Inlining 1844.757 ms, Optimization 1842.127 ms, Emission 621.066 ms, Total 4334.964 ms",12377.211 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 64.026 ms, Inlining 2226.978 ms, Optimization 1964.867 ms, Emission 679.634 ms, Total 4935.505 ms",11969.454 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 5.681 ms, Inlining 142.381 ms, Optimization 78.200 ms, Emission 112.927 ms, Total 339.189 ms",5241.100 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.820 ms, Inlining 2790.638 ms, Optimization 2228.603 ms, Emission 626.310 ms, Total 5646.371 ms",11984.241 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 23.896 ms, Inlining 2708.232 ms, Optimization 165.786 ms, Emission 471.168 ms, Total 3369.082 ms",11252.284 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.858 ms, Inlining 3625.324 ms, Optimization 50.581 ms, Emission 67.218 ms, Total 3743.980 ms",8261.164 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 98.894 ms, Inlining 4951.505 ms, Optimization 1829.577 ms, Emission 94.964 ms, Total 6974.940 ms",13452.693 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 97.785 ms, Inlining 4579.049 ms, Optimization 1808.481 ms, Emission 405.944 ms, Total 6891.260 ms",13300.207 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.864 ms, Inlining 2312.171 ms, Optimization 50.799 ms, Emission 17.267 ms, Total 2381.100 ms",7609.369 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.918 ms, Inlining 4476.680 ms, Optimization 1577.080 ms, Emission 381.352 ms, Total 6436.031 ms",13075.944 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 125.261 ms, Inlining 4024.744 ms, Optimization 1705.842 ms, Emission 683.177 ms, Total 6539.024 ms",12693.639 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 62.457 ms, Inlining 4875.644 ms, Optimization 1118.913 ms, Emission 456.874 ms, Total 6513.889 ms",12568.576 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.872 ms, Inlining 3764.179 ms, Optimization 2140.235 ms, Emission 458.759 ms, Total 6364.045 ms",10611.468 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 10.968 ms, Inlining 4605.119 ms, Optimization 1950.444 ms, Emission 412.316 ms, Total 6978.846 ms",12193.871 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 47.915 ms, Inlining 4703.124 ms, Optimization 1063.746 ms, Emission 418.119 ms, Total 6232.904 ms",12647.226 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.819 ms, Inlining 3901.435 ms, Optimization 384.828 ms, Emission 15.509 ms, Total 4302.592 ms",8531.539 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.852 ms, Inlining 4305.516 ms, Optimization 1173.835 ms, Emission 20.169 ms, Total 5500.372 ms",11764.111 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 20.920 ms, Inlining 4501.790 ms, Optimization 1210.666 ms, Emission 328.849 ms, Total 6062.225 ms",12153.886 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 23.851 ms, Inlining 1338.891 ms, Optimization 497.184 ms, Emission 17.729 ms, Total 1877.656 ms",8733.180 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 88.955 ms, Inlining 4433.407 ms, Optimization 1346.760 ms, Emission 286.504 ms, Total 6155.626 ms",12183.873 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.828 ms, Inlining 4823.180 ms, Optimization 937.580 ms, Emission 150.272 ms, Total 5911.860 ms",11944.008 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.786 ms, Inlining 1882.599 ms, Optimization 719.021 ms, Emission 18.976 ms, Total 2621.382 ms",6784.047 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 89.906 ms, Inlining 4390.654 ms, Optimization 1427.746 ms, Emission 376.856 ms, Total 6285.162 ms",9313.724 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.785 ms, Inlining 2116.260 ms, Optimization 2224.842 ms, Emission 321.176 ms, Total 4663.062 ms",7983.326 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.921 ms, Inlining 4351.818 ms, Optimization 1221.418 ms, Emission 406.610 ms, Total 5980.768 ms",10095.896 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 144.963 ms, Inlining 3148.260 ms, Optimization 51.055 ms, Emission 16.170 ms, Total 3360.448 ms",9200.121 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.847 ms, Inlining 434.975 ms, Optimization 49.029 ms, Emission 15.818 ms, Total 500.668 ms",3968.847 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.791 ms, Inlining 4392.903 ms, Optimization 1238.424 ms, Emission 296.712 ms, Total 5928.830 ms",11042.506 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 86.771 ms, Inlining 4354.235 ms, Optimization 294.890 ms, Emission 345.266 ms, Total 5081.163 ms",11040.013 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 85.857 ms, Inlining 4133.466 ms, Optimization 1368.826 ms, Emission 254.178 ms, Total 5842.327 ms",10390.176 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.825 ms, Inlining 2719.096 ms, Optimization 52.596 ms, Emission 15.580 ms, Total 2788.097 ms",6760.694 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.825 ms, Inlining 1420.912 ms, Optimization 1511.866 ms, Emission 15.656 ms, Total 2949.259 ms",10493.887 ms
-cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 33.107 ms, Inlining 3586.290 ms, Optimization 1078.826 ms, Emission 416.230 ms, Total 5114.453 ms",10757.808 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",256.553 ms,712.187 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",534.826 ms,1165.267 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1143.910 ms,6138.826 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1816.603 ms,10068.956 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1451.288 ms,5852.545 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1113.388 ms,2587.395 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4029.117 ms,11994.089 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4187.211 ms,11290.861 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5271.336 ms,12561.042 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4821.748 ms,12374.473 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4838.506 ms,11712.606 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3770.917 ms,10047.313 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1667.673 ms,10559.972 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3624.022 ms,9346.679 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5492.725 ms,12809.976 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6781.034 ms,12184.971 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1312.891 ms,7100.923 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4334.964 ms,12377.211 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4935.505 ms,11969.454 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",339.189 ms,5241.100 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5646.371 ms,11984.241 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3369.082 ms,11252.284 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3743.980 ms,8261.164 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6974.940 ms,13452.693 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6891.260 ms,13300.207 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2381.100 ms,7609.369 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6436.031 ms,13075.944 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6539.024 ms,12693.639 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6513.889 ms,12568.576 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6364.045 ms,10611.468 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6978.846 ms,12193.871 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6232.904 ms,12647.226 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4302.592 ms,8531.539 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5500.372 ms,11764.111 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6062.225 ms,12153.886 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1877.656 ms,8733.180 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6155.626 ms,12183.873 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5911.860 ms,11944.008 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2621.382 ms,6784.047 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6285.162 ms,9313.724 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4663.062 ms,7983.326 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5980.768 ms,10095.896 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3360.448 ms,9200.121 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",500.668 ms,3968.847 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5928.830 ms,11042.506 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5081.163 ms,11040.013 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5842.327 ms,10390.176 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2788.097 ms,6760.694 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2949.259 ms,10493.887 ms
+cluster,read_committed,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5114.453 ms,10757.808 ms
 cluster,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.437 ms,86.221 ms
 cluster,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.499 ms,90.807 ms
 cluster,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.906 ms,88.062 ms
@@ -489,7 +489,7 @@ cluster,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_
 cluster,read_committed,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.025 ms,93.086 ms
 cluster,repeatable_read,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.557 ms,5127.759 ms
 cluster,repeatable_read,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.325 ms,59.037 ms
-cluster,repeatable_read,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.520 ms, Inlining 82.964 ms, Optimization 33.985 ms, Emission 10.640 ms, Total 128.109 ms",363.323 ms
+cluster,repeatable_read,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",128.109 ms,363.323 ms
 cluster,repeatable_read,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.788 ms,82.758 ms
 cluster,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.786 ms,40550.360 ms
 cluster,repeatable_read,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.715 ms,40714.844 ms
@@ -511,16 +511,16 @@ cluster,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_str
 cluster,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.400 ms,75.421 ms
 cluster,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.698 ms,65.333 ms
 cluster,repeatable_read,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.472 ms,69.327 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.522 ms, Inlining 114.858 ms, Optimization 52.308 ms, Emission 16.339 ms, Total 184.026 ms",2087.705 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.819 ms, Inlining 147.689 ms, Optimization 52.914 ms, Emission 15.695 ms, Total 217.118 ms",1856.700 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.035 ms, Inlining 249.283 ms, Optimization 149.269 ms, Emission 38.441 ms, Total 438.028 ms",2672.345 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.809 ms, Inlining 515.519 ms, Optimization 527.485 ms, Emission 155.105 ms, Total 1198.919 ms",2723.650 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 11.928 ms, Inlining 1410.660 ms, Optimization 429.224 ms, Emission 133.553 ms, Total 1985.364 ms",3089.755 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.837 ms, Inlining 1018.918 ms, Optimization 48.565 ms, Emission 15.450 ms, Total 1083.769 ms",2443.109 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.827 ms, Inlining 1314.645 ms, Optimization 253.196 ms, Emission 47.204 ms, Total 1615.872 ms",2799.948 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.854 ms, Inlining 668.230 ms, Optimization 48.864 ms, Emission 15.555 ms, Total 733.504 ms",2083.194 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 6.907 ms, Inlining 724.925 ms, Optimization 50.587 ms, Emission 16.485 ms, Total 798.904 ms",2374.454 ms
-cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.917 ms, Inlining 1153.599 ms, Optimization 241.910 ms, Emission 16.463 ms, Total 1412.889 ms",2534.847 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",184.026 ms,2087.705 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",217.118 ms,1856.700 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",438.028 ms,2672.345 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1198.919 ms,2723.650 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1985.364 ms,3089.755 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1083.769 ms,2443.109 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1615.872 ms,2799.948 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",733.504 ms,2083.194 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",798.904 ms,2374.454 ms
+cluster,repeatable_read,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1412.889 ms,2534.847 ms
 cluster,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.074 ms,87.578 ms
 cluster,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.192 ms,89.568 ms
 cluster,repeatable_read,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",12.837 ms,89.311 ms
@@ -631,56 +631,56 @@ cluster,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_str
 cluster,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.430 ms,76.228 ms
 cluster,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.681 ms,66.536 ms
 cluster,repeatable_read,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.149 ms,62.831 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.859 ms, Inlining 303.061 ms, Optimization 248.729 ms, Emission 129.200 ms, Total 681.850 ms",2831.782 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.833 ms, Inlining 641.453 ms, Optimization 424.694 ms, Emission 259.286 ms, Total 1326.265 ms",7813.526 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.809 ms, Inlining 172.519 ms, Optimization 140.983 ms, Emission 16.629 ms, Total 330.941 ms",908.079 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.812 ms, Inlining 631.260 ms, Optimization 50.113 ms, Emission 16.529 ms, Total 698.713 ms",2272.903 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 3.946 ms, Inlining 715.442 ms, Optimization 401.069 ms, Emission 15.512 ms, Total 1135.968 ms",2383.089 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 3.167 ms, Inlining 1704.340 ms, Optimization 1435.320 ms, Emission 401.069 ms, Total 3543.896 ms",9087.602 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 20.017 ms, Inlining 1930.541 ms, Optimization 1745.808 ms, Emission 552.036 ms, Total 4248.403 ms",12345.725 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 24.795 ms, Inlining 2506.447 ms, Optimization 2297.331 ms, Emission 739.623 ms, Total 5568.196 ms",12754.896 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.852 ms, Inlining 2372.352 ms, Optimization 1858.389 ms, Emission 900.694 ms, Total 5132.286 ms",6512.166 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 16.871 ms, Inlining 1616.743 ms, Optimization 1659.717 ms, Emission 791.786 ms, Total 4085.117 ms",12693.779 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 5.059 ms, Inlining 2659.511 ms, Optimization 1136.813 ms, Emission 16.686 ms, Total 3818.070 ms",5172.758 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 45.004 ms, Inlining 4131.532 ms, Optimization 1574.377 ms, Emission 15.276 ms, Total 5766.189 ms",12791.381 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 23.208 ms, Inlining 3792.798 ms, Optimization 1776.945 ms, Emission 595.206 ms, Total 6188.158 ms",13091.470 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.855 ms, Inlining 3398.965 ms, Optimization 2307.520 ms, Emission 620.434 ms, Total 6327.774 ms",12579.460 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.771 ms, Inlining 626.770 ms, Optimization 193.620 ms, Emission 410.362 ms, Total 1231.524 ms",8816.165 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.808 ms, Inlining 3596.914 ms, Optimization 51.180 ms, Emission 15.455 ms, Total 3664.357 ms",5267.796 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.897 ms, Inlining 4551.195 ms, Optimization 1356.864 ms, Emission 543.924 ms, Total 6452.880 ms",13556.643 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 22.987 ms, Inlining 921.757 ms, Optimization 51.893 ms, Emission 37.382 ms, Total 1034.019 ms",8719.861 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.849 ms, Inlining 4394.914 ms, Optimization 1883.044 ms, Emission 620.118 ms, Total 6898.925 ms",12537.961 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 28.849 ms, Inlining 2198.038 ms, Optimization 54.273 ms, Emission 15.279 ms, Total 2296.439 ms",6841.609 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 36.814 ms, Inlining 2445.860 ms, Optimization 597.709 ms, Emission 615.135 ms, Total 3695.518 ms",11827.916 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.804 ms, Inlining 4780.109 ms, Optimization 1600.903 ms, Emission 632.574 ms, Total 7014.390 ms",13324.024 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.928 ms, Inlining 3965.493 ms, Optimization 1657.068 ms, Emission 563.348 ms, Total 6186.837 ms",12074.195 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.831 ms, Inlining 4500.459 ms, Optimization 1939.347 ms, Emission 393.257 ms, Total 6833.894 ms",12607.323 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.150 ms, Inlining 159.208 ms, Optimization 1218.644 ms, Emission 103.881 ms, Total 1482.883 ms",5203.509 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.800 ms, Inlining 4608.695 ms, Optimization 1993.789 ms, Emission 416.579 ms, Total 7019.864 ms",12058.662 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 47.984 ms, Inlining 4418.467 ms, Optimization 1735.648 ms, Emission 516.266 ms, Total 6718.365 ms",9887.208 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 41.947 ms, Inlining 4702.672 ms, Optimization 1959.638 ms, Emission 469.309 ms, Total 7173.566 ms",12802.351 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.795 ms, Inlining 1898.658 ms, Optimization 2342.992 ms, Emission 278.170 ms, Total 4520.615 ms",8023.561 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 69.095 ms, Inlining 4566.000 ms, Optimization 743.347 ms, Emission 496.974 ms, Total 5875.415 ms",11190.241 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 52.916 ms, Inlining 4079.764 ms, Optimization 2003.029 ms, Emission 230.133 ms, Total 6365.842 ms",11338.227 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.840 ms, Inlining 2271.970 ms, Optimization 51.474 ms, Emission 15.859 ms, Total 2340.144 ms",9771.683 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.827 ms, Inlining 2241.580 ms, Optimization 616.923 ms, Emission 526.085 ms, Total 3385.414 ms",9833.011 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 48.871 ms, Inlining 1911.361 ms, Optimization 1685.483 ms, Emission 17.856 ms, Total 3663.571 ms",7213.878 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 87.885 ms, Inlining 3770.561 ms, Optimization 1519.049 ms, Emission 151.998 ms, Total 5529.493 ms",11238.513 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.065 ms, Inlining 723.880 ms, Optimization 2374.126 ms, Emission 265.202 ms, Total 3364.272 ms",10546.250 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.810 ms, Inlining 4547.917 ms, Optimization 1474.774 ms, Emission 427.605 ms, Total 6451.107 ms",12043.592 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.790 ms, Inlining 929.673 ms, Optimization 2441.864 ms, Emission 561.570 ms, Total 3933.898 ms",10448.295 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 25.018 ms, Inlining 3243.033 ms, Optimization 1517.559 ms, Emission 413.735 ms, Total 5199.344 ms",11633.218 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 36.537 ms, Inlining 3059.000 ms, Optimization 47.862 ms, Emission 273.408 ms, Total 3416.807 ms",10309.430 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.834 ms, Inlining 4135.891 ms, Optimization 1362.068 ms, Emission 399.031 ms, Total 5897.824 ms",11389.120 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 15.906 ms, Inlining 3479.158 ms, Optimization 740.136 ms, Emission 405.927 ms, Total 4641.127 ms",11398.551 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.822 ms, Inlining 4072.057 ms, Optimization 1193.823 ms, Emission 15.522 ms, Total 5282.224 ms",10741.907 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.849 ms, Inlining 3137.668 ms, Optimization 582.081 ms, Emission 16.573 ms, Total 3737.171 ms",9785.668 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.874 ms, Inlining 4119.579 ms, Optimization 1437.379 ms, Emission 287.794 ms, Total 5845.625 ms",11063.454 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 58.950 ms, Inlining 1011.187 ms, Optimization 1718.383 ms, Emission 328.231 ms, Total 3116.751 ms",6521.055 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.784 ms, Inlining 2382.654 ms, Optimization 85.559 ms, Emission 16.291 ms, Total 2485.287 ms",9397.711 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 34.012 ms, Inlining 3784.010 ms, Optimization 1324.052 ms, Emission 504.613 ms, Total 5646.687 ms",10560.174 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.814 ms, Inlining 3756.263 ms, Optimization 1063.639 ms, Emission 141.931 ms, Total 4962.647 ms",10501.558 ms
-cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 53.876 ms, Inlining 4154.190 ms, Optimization 1538.452 ms, Emission 302.258 ms, Total 6048.777 ms",10146.588 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",681.850 ms,2831.782 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1326.265 ms,7813.526 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",330.941 ms,908.079 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",698.713 ms,2272.903 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1135.968 ms,2383.089 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3543.896 ms,9087.602 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4248.403 ms,12345.725 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5568.196 ms,12754.896 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5132.286 ms,6512.166 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4085.117 ms,12693.779 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3818.070 ms,5172.758 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5766.189 ms,12791.381 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6188.158 ms,13091.470 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6327.774 ms,12579.460 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1231.524 ms,8816.165 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3664.357 ms,5267.796 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6452.880 ms,13556.643 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1034.019 ms,8719.861 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6898.925 ms,12537.961 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2296.439 ms,6841.609 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3695.518 ms,11827.916 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",7014.390 ms,13324.024 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6186.837 ms,12074.195 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6833.894 ms,12607.323 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1482.883 ms,5203.509 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",7019.864 ms,12058.662 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6718.365 ms,9887.208 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",7173.566 ms,12802.351 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4520.615 ms,8023.561 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5875.415 ms,11190.241 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6365.842 ms,11338.227 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2340.144 ms,9771.683 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3385.414 ms,9833.011 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3663.571 ms,7213.878 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5529.493 ms,11238.513 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3364.272 ms,10546.250 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6451.107 ms,12043.592 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3933.898 ms,10448.295 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5199.344 ms,11633.218 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3416.807 ms,10309.430 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5897.824 ms,11389.120 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4641.127 ms,11398.551 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5282.224 ms,10741.907 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3737.171 ms,9785.668 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5845.625 ms,11063.454 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3116.751 ms,6521.055 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2485.287 ms,9397.711 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5646.687 ms,10560.174 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4962.647 ms,10501.558 ms
+cluster,repeatable_read,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6048.777 ms,10146.588 ms
 cluster,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",20.822 ms,98.151 ms
 cluster,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",14.171 ms,169.751 ms
 cluster,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",26.372 ms,153.717 ms
@@ -733,7 +733,7 @@ cluster,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within
 cluster,repeatable_read,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",37.815 ms,125.493 ms
 cluster,serializable,1,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.580 ms,4943.791 ms
 cluster,serializable,1,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.967 ms,59.954 ms
-cluster,serializable,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.575 ms, Inlining 80.833 ms, Optimization 33.848 ms, Emission 10.468 ms, Total 125.724 ms",360.805 ms
+cluster,serializable,1,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",125.724 ms,360.805 ms
 cluster,serializable,1,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.088 ms,82.230 ms
 cluster,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.564 ms,38288.240 ms
 cluster,serializable,10,SELECT ST_AsText(ST_Union(geom)) FROM nyc_census_blocks,0.714 ms,41461.228 ms
@@ -755,16 +755,16 @@ cluster,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_street
 cluster,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.032 ms,66.506 ms
 cluster,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.978 ms,66.319 ms
 cluster,serializable,10,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",13.185 ms,63.881 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.838 ms, Inlining 95.333 ms, Optimization 55.027 ms, Emission 16.792 ms, Total 167.989 ms",497.157 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.000 ms, Inlining 404.172 ms, Optimization 296.157 ms, Emission 159.459 ms, Total 860.788 ms",2162.318 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.043 ms, Inlining 212.346 ms, Optimization 109.178 ms, Emission 33.048 ms, Total 355.616 ms",1738.120 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.878 ms, Inlining 860.234 ms, Optimization 236.006 ms, Emission 63.642 ms, Total 1160.760 ms",2519.078 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.799 ms, Inlining 866.592 ms, Optimization 217.720 ms, Emission 77.996 ms, Total 1163.107 ms",2637.676 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.135 ms, Inlining 135.070 ms, Optimization 48.642 ms, Emission 15.150 ms, Total 199.996 ms",836.640 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.856 ms, Inlining 749.811 ms, Optimization 218.769 ms, Emission 76.901 ms, Total 1046.337 ms",2466.555 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.906 ms, Inlining 602.281 ms, Optimization 484.108 ms, Emission 115.334 ms, Total 1202.628 ms",2442.040 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.859 ms, Inlining 617.163 ms, Optimization 570.669 ms, Emission 64.454 ms, Total 1253.144 ms",2219.589 ms
-cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 12.940 ms, Inlining 522.330 ms, Optimization 48.947 ms, Emission 16.758 ms, Total 600.975 ms",1915.752 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",167.989 ms,497.157 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",860.788 ms,2162.318 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",355.616 ms,1738.120 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1160.760 ms,2519.078 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1163.107 ms,2637.676 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",199.996 ms,836.640 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1046.337 ms,2466.555 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1202.628 ms,2442.040 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1253.144 ms,2219.589 ms
+cluster,serializable,10,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",600.975 ms,1915.752 ms
 cluster,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.279 ms,95.882 ms
 cluster,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",15.237 ms,91.445 ms
 cluster,serializable,10,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",13.027 ms,88.552 ms
@@ -875,56 +875,56 @@ cluster,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_street
 cluster,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.913 ms,71.750 ms
 cluster,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",12.551 ms,64.876 ms
 cluster,serializable,50,"SELECT ST_ConvexHull(ST_Union(st.geom)) FROM nyc_streets AS st JOIN nyc_neighborhoods AS nb ON ST_Contains(nb.geom, st.geom) GROUP BY nb.boroname HAVING nb.boroname = 'Brooklyn'",14.346 ms,67.755 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.551 ms, Inlining 107.639 ms, Optimization 50.914 ms, Emission 17.147 ms, Total 176.251 ms",503.942 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.859 ms, Inlining 344.567 ms, Optimization 63.394 ms, Emission 16.270 ms, Total 425.091 ms",1819.927 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.813 ms, Inlining 870.249 ms, Optimization 55.211 ms, Emission 26.345 ms, Total 952.619 ms",6774.102 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 5.073 ms, Inlining 889.567 ms, Optimization 56.758 ms, Emission 60.141 ms, Total 1011.539 ms",8504.016 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.824 ms, Inlining 460.278 ms, Optimization 336.323 ms, Emission 51.077 ms, Total 848.503 ms",3652.604 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.808 ms, Inlining 2055.095 ms, Optimization 1842.560 ms, Emission 883.217 ms, Total 4781.680 ms",12724.140 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.827 ms, Inlining 136.794 ms, Optimization 52.596 ms, Emission 26.446 ms, Total 216.662 ms",5760.162 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 31.931 ms, Inlining 3218.133 ms, Optimization 2325.450 ms, Emission 162.609 ms, Total 5738.123 ms",13232.420 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.837 ms, Inlining 690.117 ms, Optimization 1053.849 ms, Emission 560.003 ms, Total 2304.806 ms",8095.843 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.789 ms, Inlining 3130.405 ms, Optimization 2497.892 ms, Emission 583.206 ms, Total 6212.293 ms",12386.233 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 23.037 ms, Inlining 3261.951 ms, Optimization 2575.893 ms, Emission 482.612 ms, Total 6343.493 ms",12870.729 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.026 ms, Inlining 3026.139 ms, Optimization 2277.316 ms, Emission 670.253 ms, Total 5974.734 ms",12483.532 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 18.951 ms, Inlining 1987.278 ms, Optimization 389.254 ms, Emission 142.515 ms, Total 2537.998 ms",10309.328 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.864 ms, Inlining 3854.354 ms, Optimization 1027.677 ms, Emission 598.042 ms, Total 5480.937 ms",13241.657 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 2.070 ms, Inlining 5045.285 ms, Optimization 1558.578 ms, Emission 332.521 ms, Total 6938.455 ms",12946.699 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.841 ms, Inlining 2204.230 ms, Optimization 2416.196 ms, Emission 482.512 ms, Total 5103.778 ms",12819.010 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 19.635 ms, Inlining 4651.821 ms, Optimization 353.854 ms, Emission 156.975 ms, Total 5182.285 ms",10181.740 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 21.794 ms, Inlining 4371.746 ms, Optimization 48.940 ms, Emission 15.312 ms, Total 4457.794 ms",9202.029 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 65.579 ms, Inlining 5269.357 ms, Optimization 1755.135 ms, Emission 451.588 ms, Total 7541.659 ms",11713.891 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.789 ms, Inlining 3594.174 ms, Optimization 2070.199 ms, Emission 577.045 ms, Total 6242.208 ms",12645.260 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.815 ms, Inlining 244.701 ms, Optimization 1251.244 ms, Emission 669.067 ms, Total 2165.827 ms",6534.877 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.789 ms, Inlining 1064.844 ms, Optimization 267.266 ms, Emission 16.084 ms, Total 1348.984 ms",2062.589 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.854 ms, Inlining 4461.691 ms, Optimization 1962.353 ms, Emission 472.214 ms, Total 6897.112 ms",12496.923 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 19.159 ms, Inlining 4879.684 ms, Optimization 1563.638 ms, Emission 301.737 ms, Total 6764.219 ms",12679.817 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 43.654 ms, Inlining 4925.960 ms, Optimization 1275.615 ms, Emission 375.226 ms, Total 6620.455 ms",12937.947 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.772 ms, Inlining 4442.888 ms, Optimization 1666.028 ms, Emission 505.949 ms, Total 6615.638 ms",12206.154 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.856 ms, Inlining 4401.221 ms, Optimization 911.859 ms, Emission 309.155 ms, Total 5623.092 ms",11038.364 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 85.932 ms, Inlining 3835.623 ms, Optimization 54.684 ms, Emission 16.176 ms, Total 3992.414 ms",9398.733 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.832 ms, Inlining 3392.749 ms, Optimization 445.333 ms, Emission 338.816 ms, Total 4177.729 ms",10404.495 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.820 ms, Inlining 3504.684 ms, Optimization 913.365 ms, Emission 15.782 ms, Total 4434.651 ms",11588.171 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.025 ms, Inlining 132.267 ms, Optimization 1003.010 ms, Emission 689.085 ms, Total 1825.386 ms",6192.407 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.004 ms, Inlining 4144.267 ms, Optimization 746.802 ms, Emission 18.871 ms, Total 4910.944 ms",9398.748 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.964 ms, Inlining 4350.278 ms, Optimization 1360.635 ms, Emission 400.313 ms, Total 6112.191 ms",12138.887 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.129 ms, Inlining 4112.866 ms, Optimization 1537.688 ms, Emission 598.964 ms, Total 6250.648 ms",11550.730 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.863 ms, Inlining 4599.791 ms, Optimization 1341.668 ms, Emission 426.897 ms, Total 6369.219 ms",11799.940 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.838 ms, Inlining 3423.394 ms, Optimization 400.586 ms, Emission 16.305 ms, Total 3841.123 ms",4806.615 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.829 ms, Inlining 3104.849 ms, Optimization 1570.357 ms, Emission 369.315 ms, Total 5045.350 ms",11504.888 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.045 ms, Inlining 4990.410 ms, Optimization 1173.755 ms, Emission 480.271 ms, Total 6645.480 ms",11259.522 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 1.017 ms, Inlining 127.090 ms, Optimization 49.839 ms, Emission 15.878 ms, Total 193.824 ms",7227.351 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 12.844 ms, Inlining 3378.709 ms, Optimization 1539.601 ms, Emission 343.492 ms, Total 5274.645 ms",11251.264 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 22.857 ms, Inlining 1510.366 ms, Optimization 48.161 ms, Emission 16.099 ms, Total 1597.484 ms",9367.019 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.889 ms, Inlining 3518.692 ms, Optimization 1345.700 ms, Emission 502.278 ms, Total 5367.559 ms",10845.435 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 49.398 ms, Inlining 2879.465 ms, Optimization 52.568 ms, Emission 16.192 ms, Total 2997.623 ms",9538.645 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.819 ms, Inlining 756.804 ms, Optimization 1456.760 ms, Emission 492.869 ms, Total 2707.253 ms",9856.827 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.830 ms, Inlining 4034.244 ms, Optimization 727.124 ms, Emission 17.824 ms, Total 4780.022 ms",8760.882 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 56.855 ms, Inlining 3885.720 ms, Optimization 1571.639 ms, Emission 404.049 ms, Total 5918.263 ms",10717.535 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.841 ms, Inlining 2687.269 ms, Optimization 1056.823 ms, Emission 493.833 ms, Total 4238.767 ms",9942.627 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.813 ms, Inlining 127.982 ms, Optimization 57.833 ms, Emission 20.410 ms, Total 207.037 ms",7829.237 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.788 ms, Inlining 3845.862 ms, Optimization 1119.414 ms, Emission 256.623 ms, Total 5222.687 ms",10081.535 ms
-cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb","Generation 0.815 ms, Inlining 3489.937 ms, Optimization 1417.285 ms, Emission 16.340 ms, Total 4924.377 ms",9663.903 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",176.251 ms,503.942 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",425.091 ms,1819.927 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",952.619 ms,6774.102 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1011.539 ms,8504.016 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",848.503 ms,3652.604 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4781.680 ms,12724.140 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",216.662 ms,5760.162 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5738.123 ms,13232.420 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2304.806 ms,8095.843 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6212.293 ms,12386.233 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6343.493 ms,12870.729 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5974.734 ms,12483.532 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2537.998 ms,10309.328 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5480.937 ms,13241.657 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6938.455 ms,12946.699 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5103.778 ms,12819.010 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5182.285 ms,10181.740 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4457.794 ms,9202.029 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",7541.659 ms,11713.891 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6242.208 ms,12645.260 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2165.827 ms,6534.877 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1348.984 ms,2062.589 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6897.112 ms,12496.923 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6764.219 ms,12679.817 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6620.455 ms,12937.947 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6615.638 ms,12206.154 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5623.092 ms,11038.364 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3992.414 ms,9398.733 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4177.729 ms,10404.495 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4434.651 ms,11588.171 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1825.386 ms,6192.407 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4910.944 ms,9398.748 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6112.191 ms,12138.887 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6250.648 ms,11550.730 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6369.219 ms,11799.940 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",3841.123 ms,4806.615 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5045.350 ms,11504.888 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",6645.480 ms,11259.522 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",193.824 ms,7227.351 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5274.645 ms,11251.264 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",1597.484 ms,9367.019 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5367.559 ms,10845.435 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2997.623 ms,9538.645 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",2707.253 ms,9856.827 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4780.022 ms,8760.882 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5918.263 ms,10717.535 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4238.767 ms,9942.627 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",207.037 ms,7829.237 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",5222.687 ms,10081.535 ms
+cluster,serializable,50,"SELECT ST_Intersection(mc.geom, mcb.geom) FROM mc, mcb",4924.377 ms,9663.903 ms
 cluster,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",25.726 ms,452.730 ms
 cluster,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",34.023 ms,648.294 ms
 cluster,serializable,50,"SELECT sum(distinct popn_total) AS population_within_500m_of_subway FROM nyc_census_blocks AS cb JOIN nyc_subway_stations AS sub ON ST_DWithin(cb.geom, sub.geom, 500)",63.792 ms,388.725 ms
