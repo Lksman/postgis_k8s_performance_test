@@ -23,7 +23,7 @@ def configure_logging(id: str) -> None:
         stdout_handler = logging.StreamHandler(stream=sys.stdout)
         handlers = [stdout_handler]
     else:
-        file_handler = logging.FileHandler(filename=f'performance_{id}.log')
+        file_handler = logging.FileHandler(filename=f'logs/performance_{id}.log')
         stdout_handler = logging.StreamHandler(stream=sys.stdout)
         handlers = [file_handler, stdout_handler]
 
@@ -66,9 +66,6 @@ if __name__ == '__main__':
     db_types = ['single_node', 'cluster']
     isolation_levels = ['read_uncommitted', 'read_committed', 'repeatable_read', 'serializable']
     concurrent_connections = [1, 10, 50]
-
-    db_types = ['cluster']
-
 
     # db_types = ['local']    
     # isolation_levels = ['read_uncommitted', 'serializable']
