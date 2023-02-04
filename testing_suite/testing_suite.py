@@ -24,6 +24,7 @@ def configure_logging(id: str) -> None:
         stdout_handler = logging.StreamHandler(stream=sys.stdout)
         handlers = [stdout_handler]
     else:
+        # maybe rotating file handler?
         file_handler = logging.FileHandler(filename=f'logs/performance_{id}.log')
         stdout_handler = logging.StreamHandler(stream=sys.stdout)
         handlers = [file_handler, stdout_handler]
