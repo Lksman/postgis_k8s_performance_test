@@ -1,20 +1,11 @@
 import secrets
 
-_keepalive_kwargs = {
-    'keepalives': 1,
-    'keepalives_idle': 30,
-    'keepalives_interval': 10,
-    'keepalives_count': 5
-}
-
-
 _db_single_node_details = {
     'dbname': 'postgres',
     'user': 'postgres',
     'password': secrets.db_single_node_secrets['password'],
     'host': secrets.db_single_node_secrets['host'],
-    'port': secrets.db_single_node_secrets['port'],
-    'keepalive_kwargs': _keepalive_kwargs
+    'port': secrets.db_single_node_secrets['port']
 }
 
 _db_cluster_details = {
@@ -22,8 +13,7 @@ _db_cluster_details = {
     'user': 'postgres',
     'password': secrets.db_cluster_secrets['password'],
     'host': secrets.db_cluster_secrets['host'],
-    'port': secrets.db_cluster_secrets['port'],
-    'keepalive_kwargs': _keepalive_kwargs
+    'port': secrets.db_cluster_secrets['port']
 }
 
 _db_local_details = {
