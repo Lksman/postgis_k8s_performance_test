@@ -6,7 +6,7 @@ from typing import Optional
 
 
 class DatabaseConnectionPool():
-    def __init__(self, dbname:str=None, user:str=None, password:str=None, host:str=None, port:str=None) -> None:
+    def __init__(self, dbname:str=None, user:str=None, password:str=None, host:str=None, port:str=None, max_connections:int=None) -> None:
         if dbname is None:
             raise ValueError('dbname is required')
         if user is None:
@@ -17,6 +17,10 @@ class DatabaseConnectionPool():
             raise ValueError('host is required')
         if port is None:
             logging.warning('port is not specified, defaulting to 5432')
+            port = 5432
+        if max_connections is None:
+            logging.warning('max_connections is not specified, defaulting to 80')
+            max_connections = 80
 
         max_retries = 5
         delay_between_retries = 10
@@ -30,7 +34,7 @@ class DatabaseConnectionPool():
                     'port': port
                 }
 
-                self.pool = psycopg2.pool.ThreadedConnectionPool(1, 60, **connect_kwargs)
+                self.pool = psycopg2.pool.ThreadedConnectionPool(1, max_connections, **connect_kwargs)
             except Exception as e:
                 logging.error(f"Failed to connect pool to database ({e}), retrying in {delay_between_retries} seconds...")
                 sleep(delay_between_retries)
@@ -102,4 +106,3 @@ class DatabaseConnectionPool():
         conn.set_isolation_level(level)
         conn.commit()
         self.pool.putconn(conn)
-

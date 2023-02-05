@@ -1,13 +1,12 @@
 import logging
 import re
 import sys
-import time
+
 from custom_thread import CustomThread
 from db_connection_pool import DatabaseConnectionPool
 from data_to_csv import CSVWriter
 from psycopg2.pool import ThreadedConnectionPool
 import config
-import utils
 
 ENTRY = {
     'db_type': None,
@@ -19,13 +18,13 @@ ENTRY = {
 }
 
 
-def configure_logging(id: str) -> None:
+def configure_logging(logname: str) -> None:
     if id is None:
         stdout_handler = logging.StreamHandler(stream=sys.stdout)
         handlers = [stdout_handler]
     else:
         # maybe rotating file handler?
-        file_handler = logging.FileHandler(filename=f'logs/performance_{id}.log')
+        file_handler = logging.FileHandler(filename=f'logs/{logname}.log')
         stdout_handler = logging.StreamHandler(stream=sys.stdout)
         handlers = [file_handler, stdout_handler]
 
@@ -37,10 +36,9 @@ def configure_logging(id: str) -> None:
 
 
 
-def execute_query_and_build_entry(isolation_lvl: str = None, concurrent: int = 1, query: str = None, db_type: str = None, pool: ThreadedConnectionPool = None) -> dict:
+def execute_query_and_build_entry(connection_pool: DatabaseConnectionPool, query: str,  isolation_lvl: str = None, concurrent: int = 1, db_type: str = None) -> dict:
 
-    db_pool = DatabaseConnectionPool(**config.db_configs[db_type])
-    res = db_pool.explain_analyze(query)
+    res = connection_pool.explain_analyze(query)
 
     current_entry = ENTRY.copy()
     current_entry['db_type'] = db_type
@@ -55,28 +53,24 @@ def execute_query_and_build_entry(isolation_lvl: str = None, concurrent: int = 1
 
 
 if __name__ == '__main__':
-
-
     # setting up test parameters
     db_types = ['single_node', 'cluster']
     isolation_levels = ['read_uncommitted', 'read_committed', 'repeatable_read', 'serializable']
     concurrent_connections = [1, 10, 50]
 
+    # local debugging
     # db_types = ['local']    
-    # isolation_levels = ['read_uncommitted', 'serializable']
-    # concurrent_connections = [10]
-
-    # clean stale logs and csv files
-    # utils.clean_dir()
+    # isolation_levels = ['serializable']
+    # concurrent_connections = [80]
 
     for db_type in db_types:
-        # set up logging
-        configure_logging(db_type)
+        configure_logging(f'performance_{db_type}')
         
         # creating aux. tables to prevent memory errors on expensive queries
         logging.info("creating aux. tables")
 
-        db_pool = DatabaseConnectionPool(**config.db_configs[db_type])
+        max_connections = min(concurrent_connections, 100)
+        db_pool = DatabaseConnectionPool(max_connections, **config.db_configs[db_type])
         for query in config.aux_queries.values():
             db_pool.execute(query)
 
@@ -98,11 +92,9 @@ if __name__ == '__main__':
 
                     logging.info("Testing performance of query {}".format(re.sub(r'\s+', ' ', query)))
                     for _ in range(concurrent):
-                        t = CustomThread(target=execute_query_and_build_entry, args=(isolation_lvl, concurrent, query, db_type, db_pool))
+                        t = CustomThread(target=execute_query_and_build_entry, args=(db_pool, query, isolation_lvl, concurrent, db_type))
                         t.start()
                         threads.append(t)
-                        time.sleep(0.1)
-
 
                     for t in threads:
                         t.join()
