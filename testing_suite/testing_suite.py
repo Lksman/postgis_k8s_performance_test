@@ -1,6 +1,7 @@
 import logging
 import re
 import sys
+from math import floor
 
 from custom_thread import CustomThread
 from db_connection_pool import DatabaseConnectionPool
@@ -36,20 +37,26 @@ def configure_logging(logname: str) -> None:
 
 
 
-def execute_query_and_build_entry(connection_pool: DatabaseConnectionPool, query: str,  isolation_lvl: str = None, concurrent: int = 1, db_type: str = None) -> dict:
+def execute_query_and_build_entry(connection_pool: DatabaseConnectionPool, query: str, sample_size: int = 1, isolation_lvl: str = None, concurrent: int = 1, db_type: str = None) -> dict:
 
-    res = connection_pool.explain_analyze(query)
+    results = []
+    
+    for _ in range(sample_size):
+        res = connection_pool.explain_analyze(query)
+        results.append(res)
 
-    current_entry = ENTRY.copy()
-    current_entry['db_type'] = db_type
-    current_entry['isolation_lvl'] = isolation_lvl
-    current_entry['concurrent'] = concurrent
-    current_entry['query'] = re.sub(r'\s+', ' ', query)
-    current_entry['planning_time'] = res['Planning Time']
-    current_entry['execution_time'] = res['Execution Time']
+    avg_planning_time = sum([floor(float(re.sub(r'[^0-9.]', '', r['Planning Time'])), ) for r in results]) / sample_size
+    avg_execution_time = sum([float(re.sub(r'[^0-9.]', '', r['Execution Time'])) for r in results]) / sample_size
 
-    return current_entry
-
+    res = ENTRY.copy()
+    res['db_type'] = db_type
+    res['isolation_lvl'] = isolation_lvl
+    res['concurrent'] = concurrent
+    res['query'] = re.sub(r'\s+', ' ', query)
+    res['planning_time'] = avg_planning_time
+    res['execution_time'] = avg_execution_time
+    
+    return res
 
 
 if __name__ == '__main__':
@@ -59,9 +66,9 @@ if __name__ == '__main__':
     concurrent_connections = [1, 10, 50]
 
     # local debugging
-    # db_types = ['local']    
-    # isolation_levels = ['serializable']
-    # concurrent_connections = [80]
+    db_types = ['local']    
+    isolation_levels = ['serializable']
+    concurrent_connections = [1]
 
     for db_type in db_types:
         configure_logging(f'performance_{db_type}')
@@ -69,10 +76,10 @@ if __name__ == '__main__':
         # creating aux. tables to prevent memory errors on expensive queries
         logging.info("creating aux. tables")
 
-        max_connections = min(concurrent_connections, 100)
-        db_pool = DatabaseConnectionPool(max_connections, **config.db_configs[db_type])
-        for query in config.aux_queries.values():
-            db_pool.execute(query)
+        max_connections = min(max(concurrent_connections), 100)
+        db_pool = DatabaseConnectionPool(max_connections=max_connections, **config.db_configs[db_type])
+        # for query in config.aux_queries.values():
+        #     db_pool.execute(query)
 
         # setting up csv writer
         csv_writer = CSVWriter(f'data/performance_{db_type}.csv')
@@ -88,11 +95,13 @@ if __name__ == '__main__':
             for concurrent in concurrent_connections:
                 logging.info("Testing performance of {} concurrent connections".format(concurrent))
                 queries = config.queries.values()
+                queries = [config.queries['Intersection']]
                 for query in queries:
 
                     logging.info("Testing performance of query {}".format(re.sub(r'\s+', ' ', query)))
                     for _ in range(concurrent):
-                        t = CustomThread(target=execute_query_and_build_entry, args=(db_pool, query, isolation_lvl, concurrent, db_type))
+                        sample_size = 20
+                        t = CustomThread(target=execute_query_and_build_entry, args=(db_pool, query, sample_size, isolation_lvl, concurrent, db_type))
                         t.start()
                         threads.append(t)
 
